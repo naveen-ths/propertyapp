@@ -130,6 +130,45 @@
                             @enderror
                         </div>
                         <div class="form-group">
+                            <label for="property_brochure">Property brochure</label>
+                            <input 
+                                type="text" 
+                                name="property_brochure" 
+                                value="{{$property->property_brochure}}"
+                                class="form-control @error('property_brochure') is-invalid @enderror" 
+                                id="property_brochure" 
+                                placeholder="Enter Property brochure URL">
+                            @error('property_brochure')
+                            <div class="form-text text-danger">{{ $message }}</div>
+                            @enderror
+                        </div>
+                        <div class="form-group">
+                            <label for="property_video_url">Property Video URL:</label>
+                            <input 
+                                type="text" 
+                                name="property_video_url" 
+                                value="{{$property->property_video_url}}"
+                                class="form-control @error('property_video_url') is-invalid @enderror" 
+                                id="property_video_url" 
+                                placeholder="Enter Property video URL">
+                            @error('property_video_url')
+                            <div class="form-text text-danger">{{ $message }}</div>
+                            @enderror
+                        </div>
+                        <div class="form-group">
+                            <label for="virtual_site_tour">Property virtual site tour link:</label>
+                            <input 
+                                type="text" 
+                                name="virtual_site_tour" 
+                                value="{{$property->virtual_site_tour}}"
+                                class="form-control @error('virtual_site_tour') is-invalid @enderror" 
+                                id="virtual_site_tour" 
+                                placeholder="Enter virtual site tour">
+                            @error('virtual_site_tour')
+                            <div class="form-text text-danger">{{ $message }}</div>
+                            @enderror
+                        </div>
+                        <div class="form-group">
                             <label for="property_rera_no">Property Rera No.</label>
                             <input 
                                 type="text" 
@@ -207,12 +246,24 @@
                         <div class="form-group">
                             <label for="about_developer">Developer About</label>
                             <textarea 
-                                class="form-control @error('about_developer') is-invalid @enderror" 
+                                class="summernote @error('about_developer') is-invalid @enderror" 
                                 style="height:150px" 
                                 name="about_developer" 
                                 id="about_developer" 
                                 placeholder="Developer About">{{$property->about_developer}}</textarea>
                             @error('about_developer')
+                            <div class="form-text text-danger">{{ $message }}</div>
+                            @enderror
+                        </div>
+                        <div class="form-group">
+                            <label for="map_embed_url">Property Map URL</label>
+                            <input 
+                                type="text" 
+                                name="map_embed_url" 
+                                value="{{$property->map_embed_url}}"
+                                class="form-control @error('map_embed_url') is-invalid @enderror" 
+                                id="map_embed_url">
+                            @error('map_embed_url')
                             <div class="form-text text-danger">{{ $message }}</div>
                             @enderror
                         </div>
@@ -344,7 +395,7 @@
                                     <img src="{{ asset('assets/admin/dist/img/noimage.jpg') }}" alt="..."
                                          class="uploaded-img">
                                 </div>
-                                 @endisset
+                                @endisset
                                 @isset($slides[2]->image)
                                 <div class="thumb-preview col-sm-4">
                                     <span>Banner 3: </span><br />
@@ -357,7 +408,7 @@
                                     <img src="{{ asset('assets/admin/dist/img/noimage.jpg') }}" alt="..."
                                          class="uploaded-img">
                                 </div>
-                                 @endisset
+                                @endisset
                             </div>
 
                         </div>
@@ -374,7 +425,19 @@
                             <div class="form-text text-danger">{{ $message }}</div>
                             @enderror
                         </div>
-
+                        <div class="form-group">
+                            <label for="sidebar_content">Sidebar Register Content</label>
+                            <!--<div id="summernote"></div>-->
+                            <textarea 
+                                class="summernote @error('sidebar_content') is-invalid @enderror" 
+                                style="height:150px" 
+                                name="sidebar_content" 
+                                id="sidebar_content" 
+                                placeholder="Banner content">{{$property->sidebar_content}}</textarea>
+                            @error('sidebar_content')
+                            <div class="form-text text-danger">{{ $message }}</div>
+                            @enderror
+                        </div>
                     </div>
                     <!-- /.card-body -->
                 </div>
@@ -422,6 +485,19 @@
                                 class="form-control @error('meta_description') is-invalid @enderror" 
                                 id="meta_description" >
                             @error('meta_description')
+                            <div class="form-text text-danger">{{ $message }}</div>
+                            @enderror
+                        </div>
+                        <div class="form-group">
+                            <label for="property_footer_content">Property Footer Content</label>
+                            <!--<div id="summernote"></div>-->
+                            <textarea 
+                                class="summernote @error('property_footer_content') is-invalid @enderror" 
+                                style="height:150px" 
+                                name="property_footer_content" 
+                                id="property_footer_content" 
+                                placeholder="Property Content">{{$property->property_footer_content}}</textarea>
+                            @error('property_footer_content')
                             <div class="form-text text-danger">{{ $message }}</div>
                             @enderror
                         </div>

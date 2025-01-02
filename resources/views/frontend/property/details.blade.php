@@ -202,7 +202,16 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNav">
-                    <?= $propertyDetails->banner_content; ?>
+                    <ul class="navbar-nav nav-fill">
+                        <li class="nav-item"><a class="nav-link" href="#home"><i class="mi mi-home nav-icon"></i><span class="d-sm-inline d-md-none"> Home</span></a></li>
+                        <li class="nav-item"><a class="nav-link" href="#pricing"><i class="mi mi-price nav-icon"></i> Price</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#sitefloorplan"><i class="mi mi-siteplan nav-icon"></i> Site &amp; Floor Plan</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#amenities"><i class="mi mi-ami nav-icon"></i> Amenities</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#gallery"><i class="mi mi-gallery nav-icon"></i> Gallery</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#location"><i class="mi mi-location nav-icon"></i> Location</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#sitevisit"><i class="mi mi-sitevisit nav-icon"></i> Virtual Site Tour</a></li>
+                        <li class="nav-item overflow-hidden"><a class="nav-link enqModal" href="#" data-form="md" data-title="Download brochure" data-btn="Download now" data-enquiry="Ebook Download" data-redirect="brochure" data-redirect-file="brochure.pdf" data-toggle="modal" data-target="#enqModal"><i class="mi mi-download nav-icon d-inline-block animated slideInDown infinite"></i> Brochure</a></li>
+                    </ul>
                 </div>
             </nav>
         </header>
@@ -214,29 +223,19 @@
                     <!-- <li data-target="#home" data-slide-to="2"></li> -->
                 </ol>
                 <div class="carousel-inner">
+                    @forelse ($slides as $key => $slide)
                     <div class="carousel-item">
                         <picture>
-                            <source class="lazyload d-block micro-main-slider-img" media="(max-width: 750px)" data-srcset="{{ asset('assets/pages/img/banner1.jpg') }}" alt="Hubtown 25 Downtown in Tardeo, South Mumbai, Get 4 BHK & 5 BHK - Price, Location" type="image/webp">
-                            <source class="lazyload d-block micro-main-slider-img" media="(min-width: 751px)" data-srcset="{{ asset('assets/pages/img/banner1.jpg') }}" alt="Hubtown 25 Downtown in Tardeo, South Mumbai, Get 4 BHK & 5 BHK - Price, Location" type="image/webp">
-                            <img data-sizes="auto" class="lazyload d-block micro-main-slider-img" data-srcset="{{ asset('assets/pages/img/banner1.jpg') }} 750w,assets/img/banner1.jpg">
+                            <source class="lazyload d-block micro-main-slider-img" media="(max-width: 750px)" data-srcset="{{ asset('storage/'.$slide->image); }}" alt="Hubtown 25 Downtown in Tardeo, South Mumbai, Get 4 BHK & 5 BHK - Price, Location" type="image/webp">
+                            <source class="lazyload d-block micro-main-slider-img" media="(min-width: 751px)" data-srcset="{{ asset('storage/'.$slide->image); }}" alt="Hubtown 25 Downtown in Tardeo, South Mumbai, Get 4 BHK & 5 BHK - Price, Location" type="image/webp">
+                            <img data-sizes="auto" class="lazyload d-block micro-main-slider-img" data-srcset="{{ asset('storage/'.$slide->image); }} 750w,{{ asset('storage/'.$slide->image); }}">
                         </picture>
                     </div>
-                    <div class="carousel-item">
-                        <picture>
-                            <source class="lazyload d-block micro-main-slider-img" media="(max-width: 750px)" data-srcset="{{ asset('assets/pages/img/banner2.jpg') }}" alt="Hubtown 25 Downtown in Tardeo, South Mumbai, Get 4 BHK & 5 BHK - Price, Location" type="image/webp">
-                            <source class="lazyload d-block micro-main-slider-img" media="(min-width: 751px)" data-srcset="{{ asset('assets/pages/img/banner2.jpg') }}" alt="Hubtown 25 Downtown in Tardeo, South Mumbai, Get 4 BHK & 5 BHK - Price, Location" type="image/webp">
-                            <img data-sizes="auto" class="lazyload d-block micro-main-slider-img" data-srcset="{{ asset('assets/pages/img/banner2.jpg') }} 750w,assets/img/banner2.jpg">
-                        </picture>
-                    </div>
-                    <div class="carousel-inner">
-                        <div class="carousel-item">
-                            <picture>
-                                <source class="lazyload d-block micro-main-slider-img" media="(max-width: 750px)" data-srcset="{{ asset('assets/pages/img/banner1.jpg') }}" alt="Hubtown 25 Downtown in Tardeo, South Mumbai, Get 4 BHK & 5 BHK, Get 1 BHK, 2 BHK & 2.5 BHK - Price, Location" type="image/webp">
-                                <source class="lazyload d-block micro-main-slider-img" media="(min-width: 751px)" data-srcset="{{ asset('assets/pages/img/banner1.jpg') }}" alt="Hubtown 25 Downtown in Tardeo, South Mumbai, Get 4 BHK & 5 BHK - Price, Location" type="image/webp">
-                                <img data-sizes="auto" class="lazyload d-block micro-main-slider-img" data-srcset="{{ asset('assets/pages/img/banner2.5.jpg') }} 750w,{{ asset('assets/pages/img/banner3.jpg') }}">
-                            </picture>
-                        </div>
-                    </div>
+                    @empty
+                    <tr>
+                        <td colspan="4">There are no data.</td>
+                    </tr>
+                    @endforelse
                 </div>
                 <div class="info-box overflow-hidden">
                     <span class="pro-status">PRE LAUNCH OFFERS</span>
@@ -244,22 +243,7 @@
                     <span class="pro-add">At {{ $propertyDetails->property_location }}</span>
                     <span class="pro-dev">by {{ $propertyDetails->builder_name }}</span>
                     <br>
-                    <div class="offer offer-top offer-bg-animation text-white overflow-hidden mt-1 text-uppercase mx-1 mx-md-0">
-                        <span class="animated bounceIn infinite d-block" style="animation-duration: 3s;"> 5.5 acress Luxurious Project
-                        </span>
-                    </div>
-                    <span class="offer offer-top offer-bg-animation text-white overflow-hidden mt-1 text-uppercase mx-1 mx-md-0"> 4 BED & 5 BED SEA VIEW Apartments </span>
-
-                    <div class="offer offer-top offer-bg-animation text-white overflow-hidden mt-1 text-uppercase mx-1 mx-md-0">
-                        <span class="animated bounceIn infinite d-block" style="animation-duration: 3s;">  Flexible Payment Plan  </span>
-                    </div>
-
-
-                    <span class="offer offer-top offer-bg-animation text-white overflow-hidden mt-1 text-uppercase mx-1 mx-md-0"> Launch Benefits | Special Discount  </span>
-
-                    <div class="offer offer-top offer-bg-animation text-white overflow-hidden mt-1 text-uppercase mx-1 mx-md-0">
-                        <span class="animated bounceIn infinite d-block" style="animation-duration: 3s;"> Avail Best Offers & Discounts*    </span>
-                    </div>
+                    <?= $propertyDetails->banner_content; ?>
                     <br>
                     <span class="pro-tag-line">Exclusive 4, 5 Bed Apartments </span>
                     <span class="pro-price">Starts From ₹ {{ $propertyDetails->property_price }}*</span><br>
@@ -286,15 +270,7 @@
                     </form>
                     <!--more button start-->
                     <div class="mobile_button">
-                        <a href="#" data-toggle="modal" data-target="#enqModal" class="btn btn-info micro-form-btn mt-2 effetMoveGradient button_dsvds" ><i class="mi mi-download nav-icon d-inline-block animated slideInDown infinite"></i> Brochures</a>
-                        <a href="#" data-toggle="modal" data-target="#enqModal" class="btn btn-info micro-form-btn mt-2 effetMoveGradient button_dsvds" ><i class="mi mi-download nav-icon d-inline-block animated slideInDown infinite"></i> Floor Plan</a>
-                        <a href="#" data-toggle="modal" data-target="#enqModal" class="btn btn-info micro-form-btn mt-2 effetMoveGradient button_dsvds" ><i class="mi mi-download nav-icon d-inline-block animated slideInDown infinite"></i> Price List</a>
-                        <a href="#" data-toggle="modal" data-target="#enqModal" class="btn btn-info micro-form-btn mt-2 effetMoveGradient button_dsvds" ><i class="mi mi-download nav-icon d-inline-block animated slideInDown infinite"></i> Cost Sheet</a>
-                        <a href="#" data-toggle="modal" data-target="#enqModal" class="btn btn-info micro-form-btn mt-2 effetMoveGradient button_dsvds" ><i class="mi mi-download nav-icon d-inline-block animated slideInDown infinite"></i>4 BHK Floor Plan</a>
-                        <a href="#" data-toggle="modal" data-target="#enqModal" class="btn btn-info micro-form-btn mt-2 effetMoveGradient button_dsvds" ><i class="mi mi-download nav-icon d-inline-block animated slideInDown infinite"></i>5 BHK Floor Plan</a>
-                        <a href="#" data-toggle="modal" data-target="#enqModal" class="btn btn-info micro-form-btn mt-2 effetMoveGradient button_dsvds" ><i class="mi mi-download nav-icon d-inline-block animated slideInDown infinite"></i>Jodi Flats/Apartments Plan</a>
-                        <a href="#" data-toggle="modal" data-target="#enqModal" class="btn btn-info micro-form-btn mt-2 effetMoveGradient button_dsvds" ><i class="mi mi-download nav-icon d-inline-block animated slideInDown infinite"></i> Master Plan Layout</a>
-
+                        <?= $propertyDetails->sidebar_content; ?>
                     </div>
                     <!--more button end-->
 
@@ -317,12 +293,11 @@
                         </div>
                     </div><br><br>
 
-                    <h3 style="text-align: center; color: #A88932;">25 Downtown Project Video</h3><br>
-                    <video width="100%" height="330" controls>
-                        <source src="{{ asset('assets/pages/img/videoplayback.mp4') }}" type="video/mp4" alt="25 Downtown in Tardeo, South Mumbai, 4 BHK & 5 BHK">
-
-
-                    </video> 	    
+                    <h3 style="text-align: center; color: #A88932;">{{ $propertyDetails->property_title }} Project Video</h3><br>
+                    <iframe width="100%" height="315" src="{{ $propertyDetails->property_video_url }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    <!--                    <video width="100%" height="330" controls>
+                                            <source src="{{ asset('assets/pages/img/videoplayback.mp4') }}" type="video/mp4" alt="25 Downtown in Tardeo, South Mumbai, 4 BHK & 5 BHK">
+                                        </video>-->
                 </section>
                 <section class="section shadow-sm lazyload">
                     <span class="section-link" id="pricing"></span>
@@ -339,13 +314,8 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-
-
-
                                     <tr> <td class="border border-left-0 border-top-0 border-bottom-0 price-type">4 BHK </td> <td class="border border-left-0 border-top-0 border-bottom-0 price-carpet">3400 Sq. Ft. <small class="d-inline-block d-md-none">(Carpet Area)</small></td> <td class="price-amt"><i class="mi mi-rs-light"></i> As Per Request</td> <td><button class="btn btn-sm btn-info effetGradient effectScale enqModal" data-form="lg" data-title="Send me costing details" data-btn="Send now" data-enquiry="Request Price" data-redirect="enquiry" data-toggle="modal" data-target="#enqModal">Click Here</button></td> </tr>
                                     <tr> <td class="border border-left-0 border-top-0 border-bottom-0 price-type">5 BHK </td> <td class="border border-left-0 border-top-0 border-bottom-0 price-carpet">5100 Sq. Ft. <small class="d-inline-block d-md-none">(Carpet Area)</small></td> <td class="price-amt"><i class="mi mi-rs-light"></i> As Per Request</td> <td><button class="btn btn-sm btn-info effetGradient effectScale enqModal" data-form="lg" data-title="Send me costing details" data-btn="Send now" data-enquiry="Request Price" data-redirect="enquiry" data-toggle="modal" data-target="#enqModal">Click Here</button></td> </tr>
-
-
                                 </tbody>
                             </table>
                         </div>
@@ -547,7 +517,7 @@
                         <div class=" col-sm-12">
                             <span class="d-block section-heading-sub text-capitalize">Map View</span>
 
-                            <iframe class="lazyload lmap mb-2"  src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15091.90293149096!2d72.8153899!3d18.9766791!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7ce7aa565351b%3A0xb1c3100586cd03b!2sWillingdon%20Sports%20Club!5e0!3m2!1sen!2sin!4v1723627564006!5m2!1sen!2sin" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                            <iframe class="lazyload lmap mb-2" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15091.90293149096!2d72.8153899!3d18.9766791!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7ce7aa565351b%3A0xb1c3100586cd03b!2sWillingdon%20Sports%20Club!5e0!3m2!1sen!2sin!4v1723627564006!5m2!1sen!2sin" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                         </div>
                     </div>
 
@@ -567,37 +537,30 @@
                     <a href="#" class="enqModal" data-form="lg" data-title="Virtual Site Visit" data-btn="Start Tour" data-enquiry="Virtual Site Tour" data-redirect="virtualtour" data-toggle="modal" data-target="#enqModal">
                         <div class="at-property-item my-2 pt-md-0">
                             <div class="at-property-img vsv-img">
-                                <picture>
+<!--                                <picture>
                                     <source class="lazyload w-100" media="(max-width: 750px)" data-srcset="{{ asset('assets/pages/img/banner3.jpg') }}" type="image/webp">
                                     <source class="lazyload w-100" media="(min-width: 751px)" data-srcset="{{ asset('assets/pages/img/banner3.jpg') }}" type="image/webp">
                                     <img data-sizes="auto" class="lazyload w-100" data-srcset="{{ asset('assets/pages/img/banner3.jpg') }} 750w,{{ asset('assets/pages/img/banner3.jpg') }}">
-                                </picture>
+                                </picture>-->
+                                <iframe width="100%" height="315" src="{{ $propertyDetails->virtual_site_tour }}" title="Property Virtual Tour" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                                 <div class="vsv-text-bk">
                                     <div class="vsv-text-bg">
                                         <div class="vsv-icon lazyload"></div>
                                         <span class="text-uppercase h1 font-weight-bold mb-0 d-none d-lg-block">Virtual Tour</span>
-                                        <span class="text-capitalize text-center d-none d-lg-block">25 Downtown in Tardeo, South Mumbai</span>
+                                        <span class="text-capitalize text-center d-none d-lg-block">{{ $propertyDetails->property_title }} in {{ $propertyDetails->property_location }}</span>
                                     </div>
                                 </div>
                             </div>
-                            <span class="d-block text-capitalize text-center d-sm-block d-md-none pt-2">25 Downtown in Tardeo, South Mumbai</span>
+                            <span class="d-block text-capitalize text-center d-sm-block d-md-none pt-2">{{ $propertyDetails->property_title }} in {{ $propertyDetails->property_location }}</span>
                         </div>
                     </a>
                 </section>
                 <section class="section shadow-sm lazyload" id="developer">
                     <div class="d-block pt-2 pb-1 text-center">
-                        <img src="{{ asset('assets/pages/img/logo.png') }}" style="max-width: 100%;height: 70px; display: inline-block;">
+                        <img src="{{ asset('storage/'.$propertyDetails->property_logo) }}" style="max-width: 100%;height: 70px; display: inline-block;">
                     </div>
-                    <span class="d-block section-heading-sub text-capitalize">About Hubtown 25 Downtown Developers </span>
-                    <p>WE Hubtown developers, Comes With New Project 25 Downtown Discover a world of sophistication and opulence like no other at the epitome of luxury called 25 Downtown in Tardeo, South Mumbai. With easy access to business districts, high-end shopping, entertainment avenues, upscale recreation, and dining, 25 Downtown is envisioned to meet your highest expectations and seamlessly blend style with substance. The incomparable resplendence spills over to the luxurious amenities. If you think it's time for you to redefine your standard of living, then simply elevate yourself to Project 25 Hubtown in Tardeo, South Mumbai, and embrace infinite happiness.</p>
-                    <span class="d-block section-heading-sub text-capitalize"> VISION  </span>
-                    <P>VISION To be recognised as India’s most trusted and successful brand in the affordable housing segment, driving infrastructure development and empowering India’s growth story.</P>
-                    <span class="d-block section-heading-sub text-capitalize">UNHINDERED VIEW: </span>
-                    <p>UNHINDERED VIEW: Avisual delight from the expanse of the balcony. Breathe ni the exuberance of freedom that exists between you and the horizon. Fresh air and bright sunlight are not just complimentary but unlimited too.</p>
-                    <span class="d-block section-heading-sub text-capitalize">BE THE BEST IN BUSINESS:</span>
-                    <p> BE THE BEST IN BUSINESS: With the perfect setting for growth, your business is sure to prosper at an infinite pace at Prathamesh Elite Now, no one can stop you from being the best ni the business. </p>
-
-
+                    <span class="d-block section-heading-sub text-capitalize">About {{ $propertyDetails->property_title }} Developers </span>
+                    <?= $propertyDetails->about_developer; ?>
 
                 </section>
                 <div class="micro-side text-center">
@@ -686,8 +649,8 @@
                             </div>
                         </div>
                     </div>
-                </div></main>
-
+                </div>
+        </main>
         <script>document.addEventListener("DOMContentLoaded", function (event) {
                 document.getElementById("loader").remove();
                 document.querySelector('header').classList.remove('pload');
@@ -696,5 +659,4 @@
             });
             var sitePrimaryColor = '#A88932';</script>
     </body>
-
 </html>
