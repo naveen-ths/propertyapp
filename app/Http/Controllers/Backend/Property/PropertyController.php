@@ -45,7 +45,30 @@ class PropertyController extends Controller {
             $filePath = Storage::disk('public')->put('uploads', request()->file('property_logo'), 'public');
             $validated['property_logo'] = $filePath;
         }
-        Property::create($validated);
+        $files = [];
+        $p_id = Property::create($validated);
+        if ($request->hasFile('banners')) {
+            $allowedfileExtension = ['jpg', 'png'];
+            $files = $request->file('banners');
+            foreach ($files as $file) {
+                $filename = $file->getClientOriginalName();
+                $extension = $file->getClientOriginalExtension();
+                $check = in_array($extension, $allowedfileExtension);
+                //dd($check);
+                if ($check) {
+                    foreach ($request->banners as $photo) {
+                        $filename = $photo->store('banners');
+                        \App\Models\PropertySliderImages::create([
+                          'property_id' => $p_id->id,
+                          'image' => $filename
+                        ]);
+                    }
+                    echo "Upload Successfully";
+                } else {
+                    echo '<div class="alert alert-warning"><strong>Warning!</strong> Sorry Only Upload png , jpg , doc</div>';
+                }
+            }
+        }
         return redirect()->route('property.index')
                 ->with('success', 'Property created successfully.');
     }
