@@ -63,6 +63,9 @@ class PropertyController extends Controller
         if (request()->hasFile('property_logo')) {
             $validated['property_logo'] = UploadFile::store(public_path('assets/img/property/propertylogo'), $request->property_logo);
         }
+        if (request()->hasFile('property_favicon')) {
+            $validated['property_favicon'] = UploadFile::store(public_path('assets/img/property/propertyfavicon'), $request->property_favicon);
+        }
         if (request()->hasFile('virtual_site_tour')) {
             $validated['virtual_site_tour'] = UploadFile::store(public_path('assets/img/property/virtualsitetour'), $request->virtual_site_tour);
         }
@@ -218,6 +221,17 @@ class PropertyController extends Controller
             $validated['property_logo'] = $property->property_logo;
         }
         
+        if ($request->hasFile('property_favicon')) {
+            if (isset($property->property_favicon)) {
+              @unlink(public_path('assets/img/property/propertyfavicon/' . $property->property_favicon));
+            }
+            $file = request()->file('property_favicon');
+            $filePathFavicon = UploadFile::store(public_path('assets/img/property/propertyfavicon'), $file);
+            $validated['property_favicon'] = $filePathFavicon;
+        } else {
+            $validated['property_favicon'] = $property->property_favicon;
+        }
+
         if ($request->hasFile('virtual_site_tour')) {
             if (isset($property->virtual_site_tour)) {
               @unlink(public_path('assets/img/property/virtualsitetour/' . $property->virtual_site_tour));
@@ -352,6 +366,9 @@ class PropertyController extends Controller
          if (isset($property->property_logo)) {
             @unlink(public_path('assets/img/property/propertylogo/' . $property->property_logo));
           }
+         if (isset($property->property_favicon)) {
+            @unlink(public_path('assets/img/property/propertyfavicon/' . $property->property_favicon));
+          }
          if (isset($property->complete_costing_details)) {
              @unlink(public_path('assets/img/property/costimage/' . $property->complete_costing_details));
           }
@@ -394,6 +411,9 @@ class PropertyController extends Controller
             
             if (isset($property->property_logo)) {
               @unlink(public_path('assets/img/property/propertylogo/' . $property->property_logo));
+            }
+            if (isset($property->property_favicon)) {
+              @unlink(public_path('assets/img/property/propertyfavicon/' . $property->property_favicon));
             }
             if (isset($property->complete_costing_details)) {
                @unlink(public_path('assets/img/property/costimage/' . $property->complete_costing_details));

@@ -5,6 +5,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"><link rel="icon" href="assets/img/favicon.png" sizes="16x16">
         <title><?= $propertyDetails->property_title; ?></title>  
+        <link rel="icon" type="image/x-icon" href="{{ asset('assets/img/property/propertyfavicon/'.$propertyDetails->property_favicon); }}">
 
         <meta name="author" content="<?= $propertyDetails->property_title; ?>">
 

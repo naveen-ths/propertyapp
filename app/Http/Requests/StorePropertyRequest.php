@@ -25,6 +25,7 @@ class StorePropertyRequest extends FormRequest
           'property_title' => ['required', 'string', 'max:255'],
           'property_slug' => ['required', 'unique:properties', 'string', 'max:255'],
           'property_logo' => [],
+          'property_favicon' => [],
           'mobile_no' => [],
           'social_meta_tags' => [],
           'property_color' => [],

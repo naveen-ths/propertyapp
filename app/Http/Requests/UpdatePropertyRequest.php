@@ -28,6 +28,8 @@ class UpdatePropertyRequest extends FormRequest
           'property_title' => ['required', 'string', 'max:255'],
           'property_slug' => ['required', Rule::unique('properties')->ignore($id)],
           'property_color' => [],
+          'property_logo' => [],
+          'property_favicon' => [],
           'banner_content' => [],
           'mobile_no' => [],
           'social_meta_tags' => [],

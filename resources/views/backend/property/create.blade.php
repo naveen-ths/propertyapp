@@ -82,6 +82,20 @@
                             @enderror
                         </div>
                         <div class="form-group">
+                            <label for="property_favicon">{{ __('Property Favicon') . '*' }}</label>
+                            <br>
+                            <div class="favicon-preview">
+                            </div>
+                            <div class="mt-3">
+                                <div role="button" class="btn btn-primary btn-sm upload-btn">
+                                    <input type="file" class="img-input" id="property_favicon" name="property_favicon" accept="image/*">
+                                </div>
+                            </div>
+                            @error('property_favicon')
+                            <div class="form-text text-danger">{{ $message }}</div>
+                            @enderror
+                        </div>
+                        <div class="form-group">
                             <label for="property_color">{{ __('Property Theme color') }} </label>
                             <input 
                                 type="text" 
@@ -796,6 +810,9 @@
 
         $('#property_logo').on('change', function () {
             imagesPreview(this, 'div.thumb-preview');
+        });
+        $('#property_favicon').on('change', function () {
+            imagesPreview(this, 'div.favicon-preview');
         });
         $('#virtual_site_tour').on('change', function () {
             imagesPreview(this, 'div.thumb-preview-tour');

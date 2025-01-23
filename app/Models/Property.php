@@ -23,6 +23,7 @@ class Property extends Model
       'property_slug',
       'mobile_no',
       'property_logo',
+      'property_favicon',
       'property_color',
       'banner_content',
       'property_highlights',

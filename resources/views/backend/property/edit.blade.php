@@ -67,22 +67,49 @@
                                 <span>File Exists: </span>
                                 <div class="thumb-preview ">
                                     <a href="{{ Storage::url($property->property_logo) }}">
-                                        <img width="40%" src="{{ asset('assets/img/property/propertylogo/'.$property->property_logo) }}" alt="..." class="img-thumbnail">
+                                        <img width="40%" src="{{ asset('assets/img/property/propertylogo/'.$property->property_logo) }}" alt="..." class="uploaded-img img-thumbnail">
                                     </a>
                                 </div>
                             </div>
                             @else
                             <div class="thumb-preview ">
                                 <img src="{{ asset('assets/admin/dist/img/noimage.jpg') }}" alt="..."
-                                     class="uploaded-img">
+                                     class="uploaded-img img-thumbnail">
                             </div>
                             @endisset
                             <div class="mt-3">
                                 <div role="button" class="btn btn-primary btn-sm upload-btn">
-                                    <input type="file" class="img-input" name="property_logo" accept="image/png, image/jpeg">
+                                    <input type="file" class="img-input" id="property_logo" name="property_logo" accept="image/png, image/jpeg">
                                 </div>
                             </div>
                             @error('property_logo')
+                            <div class="form-text text-danger">{{ $message }}</div>
+                            @enderror
+                        </div>
+                        <div class="form-group">
+                            <label for="property_favicon">{{ __('Property Favicon') . '*' }}</label>
+                            <br>
+                            @isset($property->property_favicon)
+                            <div class="shrink-0 my-2">
+                                <span>File Exists: </span>
+                                <div class="thumb-preview ">
+                                    <a href="{{ Storage::url($property->property_favicon) }}">
+                                        <img width="40%" src="{{ asset('assets/img/property/propertyfavicon/'.$property->property_favicon) }}" alt="..." class="uploaded-img img-thumbnail">
+                                    </a>
+                                </div>
+                            </div>
+                            @else
+                            <div class="favicon-preview">
+                                <img src="{{ asset('assets/admin/dist/img/noimage.jpg') }}" alt="..."
+                                     class="uploaded-img img-thumbnail">
+                            </div>
+                            @endisset
+                            <div class="mt-3">
+                                <div role="button" class="btn btn-primary btn-sm upload-btn">
+                                    <input type="file" class="img-input" id="property_favicon" name="property_favicon" accept="image/*">
+                                </div>
+                            </div>
+                            @error('property_favicon')
                             <div class="form-text text-danger">{{ $message }}</div>
                             @enderror
                         </div>
@@ -625,20 +652,18 @@
                             @isset($property->virtual_site_tour)
                             <div class="shrink-0 my-2">
                                 <span>File Exists: </span>
-                                <div class="thumb-preview ">
+                                <div class="thumb-preview-tour">
                                     <a href="{{ Storage::url($property->virtual_site_tour) }}">
-                                        <img width="40%" src="{{ asset('assets/img/property/virtualsitetour/'.$property->virtual_site_tour) }}" alt="..." class="img-thumbnail">
+                                        <img width="40%" src="{{ asset('assets/img/property/virtualsitetour/'.$property->virtual_site_tour) }}" alt="..." class="uploaded-img img-thumbnail">
                                     </a>
                                 </div>
                             </div>
                             @else
-                            <div class="thumb-preview ">
+                            <div class="thumb-preview-tour">
                                 <img src="{{ asset('assets/admin/dist/img/noimage.jpg') }}" alt="..."
-                                     class="uploaded-img">
+                                     class="uploaded-img img-thumbnail">
                             </div>
                             @endisset
-                            <div class="thumb-preview-tour">
-                            </div>
 
                             <div class="mt-3">
                                 <div role="button" class="btn btn-primary btn-sm upload-btn">
@@ -825,10 +850,12 @@
             }
         };
         var singleImagesPreview = function (input, placeToInsertImagePreview) {
+        console.log(input, placeToInsertImagePreview)
             if (input.files) {
                     var reader = new FileReader();
                     reader.onload = function (event) {
-                        $($.parseHTML('<img class="img-fluid mr-2" width="200px" />')).attr('src', event.target.result).appendTo(placeToInsertImagePreview);
+                       $(placeToInsertImagePreview).attr("src", event.target.result);
+//                        $($.parseHTML('<img class="img-fluid mr-2" width="200px" />')).attr('src', event.target.result).appendTo(placeToInsertImagePreview);
                     }
                     reader.readAsDataURL(input.files[0]);
             }
@@ -874,10 +901,13 @@
             }
           }
         $('#property_logo').on('change', function () {
-            imagesPreview(this, 'div.thumb-preview');
+            singleImagesPreview(this, '.thumb-preview .uploaded-img');
+        });
+         $('#property_favicon').on('change', function () {
+            singleImagesPreview(this, '.favicon-preview .uploaded-img');
         });
         $('#virtual_site_tour').on('change', function () {
-            singleImagesPreview(this, 'div.thumb-preview-tour');
+            singleImagesPreview(this, '.thumb-preview-tour .uploaded-img');
         });
         $('#gallery-photo-add').on('change', function () {
             imagesPreview(this, 'div.gallery');
