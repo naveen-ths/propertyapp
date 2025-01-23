@@ -7,6 +7,7 @@ use App\Http\Controllers\Backend\DashboardController;
 use App\Http\Controllers\Backend\EnquiriesController;
 use App\Http\Controllers\Frontend\PropertyController as FrontendPropertyController ;
 use App\Http\Controllers\Frontend\EnquiryController as FrontendEnquiryController;
+use App\Http\Controllers\Frontend\SitemapController ;
 
 Route::get('/', function () {
     return view('welcome');
@@ -38,6 +39,7 @@ Route::delete('/property/gallery-delete/{id}',[PropertyController::class, 'delet
 Route::patch('/property/location-delete',[PropertyController::class, 'locationDelete'])->middleware(['auth', 'verified'])->name('property.locationdelete');
 
 // FRONTEND Routes
+Route::get('/sitemap', [SitemapController::class, 'index'])->name('frontend.sitemap');
 Route::get('/property', [FrontendPropertyController::class, 'index'])->name('frontend.properties');
 Route::get('/{slug}', [FrontendPropertyController::class, 'details'])->name('frontend.property.details');
 Route::post('/enquiry', [FrontendEnquiryController::class, 'submit'])->name('enquiry.submit');
