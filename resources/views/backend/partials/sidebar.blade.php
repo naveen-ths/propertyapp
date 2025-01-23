@@ -65,6 +65,15 @@
                         </li>
                     </ul>
                 </li>
+                <li class="nav-item">
+                    <a href="{{ route('enquiries.index') }}" class="nav-link">
+                        <i class="nav-icon fas fa-home"></i>
+                        <p>
+                            Manage Enquiries
+                            <i class="right fas fa-angle-left"></i>
+                        </p>
+                    </a>
+                </li>
             </ul>
         </nav>
         <!-- /.sidebar-menu -->

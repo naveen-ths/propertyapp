@@ -21,7 +21,7 @@
     <div class="content">
         <div class="container-fluid">
             <div class="row">
-                <div class="col-lg-6">
+                <div class="col-lg-8">
                     <div class="card">
                         <div class="card-header border-0">
                             <h3 class="card-title">Latest Property Query</h3>
@@ -41,70 +41,36 @@
                                         <th>Name</th>
                                         <th>Property</th>
                                         <th>Mobile</th>
+                                        <th>Email</th>
                                         <th>Added at</th>
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    @forelse ($enquiries as $key => $enq)
                                     <tr>
-                                        <td>Arun</td>
                                         <td>
-                                            Property 1
+                                            {{ $enq->name }}
                                         </td>
                                         <td>
-                                            1234567980
+                                            <a target="_blank" href="{{$enq->property_url}}">
+                                                {{ $enq->property_url }}
+                                            </a>
                                         </td>
                                         <td>
-                                            25/12/2024
+                                            {{ $enq->mobile }}
+                                        </td>
+                                        <td>
+                                            {{ $enq->email }}
+                                        </td>
+                                        <td>
+                                            {{ $enq->created_at }}
                                         </td>
                                     </tr>
+                                    @empty
                                     <tr>
-                                        <td>Arun</td>
-                                        <td>
-                                            Property 1
-                                        </td>
-                                        <td>
-                                            1234567980
-                                        </td>
-                                        <td>
-                                            25/12/2024
-                                        </td>
+                                        <td class="text-center" colspan="6">There are no data available.</td>
                                     </tr>
-                                    <tr>
-                                        <td>Arun</td>
-                                        <td>
-                                            Property 1
-                                        </td>
-                                        <td>
-                                            1234567980
-                                        </td>
-                                        <td>
-                                            25/12/2024
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Arun</td>
-                                        <td>
-                                            Property 1
-                                        </td>
-                                        <td>
-                                            1234567980
-                                        </td>
-                                        <td>
-                                            25/12/2024
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Arun</td>
-                                        <td>
-                                            Property 1
-                                        </td>
-                                        <td>
-                                            1234567980
-                                        </td>
-                                        <td>
-                                            25/12/2024
-                                        </td>
-                                    </tr>
+                                    @endforelse
                                 </tbody>
                             </table>
                         </div>

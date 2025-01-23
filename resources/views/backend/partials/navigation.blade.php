@@ -5,10 +5,7 @@
         <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="index3.html" class="nav-link">Home</a>
-      </li>
-      <li class="nav-item d-none d-sm-inline-block">
-        <a href="#" class="nav-link">Contact</a>
+        <a href="/dashboard" class="nav-link">Home</a>
       </li>
     </ul>
 
@@ -126,10 +123,27 @@
           <i class="fas fa-expand-arrows-alt"></i>
         </a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#" role="button">
-          <i class="fas fa-th-large"></i>
+      <li class="nav-item dropdown">
+        <a class="nav-link" data-toggle="dropdown" href="#">
+           <i class="far fa-user"></i> Account
         </a>
+        <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+          <span class="dropdown-item dropdown-header">Manage Profile</span>
+          <div class="dropdown-divider"></div>
+           <a href="{{route('profile.edit')}}" class="dropdown-item">
+              Profile
+          </a>
+          <div class="dropdown-divider"></div>
+          <form method="POST" class="dropdown-item" action="{{ route('logout') }}">
+              @csrf
+
+              <x-responsive-nav-link :href="route('logout')"
+                                     onclick="event.preventDefault();
+                                this.closest('form').submit();">
+                  {{ __('Log Out') }}
+              </x-responsive-nav-link>
+          </form>
+        </div>
       </li>
     </ul>
   </nav>
