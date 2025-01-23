@@ -22,8 +22,9 @@ class PropertyController extends Controller {
         $propertyContent = Property::where('property_slug', $slug)->firstOrFail();
         $information['propertyDetails'] = $propertyContent;
         $information['slides'] = Property::find($propertyContent->id)->slides;
+        $information['gallery'] = Property::find($propertyContent->id)->gallery;
+        $information['floors'] = Property::find($propertyContent->id)->floors;
         //dd($information['slides']);
-
         return view('frontend.property.details', $information);
     }
 }

@@ -3,9 +3,11 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class UpdatePropertyRequest extends FormRequest
 {
+
     /**
      * Determine if the user is authorized to make this request.
      */
@@ -21,36 +23,44 @@ class UpdatePropertyRequest extends FormRequest
      */
     public function rules(): array
     {
+        $id = $this->route('property')->id;
         return [
-            'property_title' => ['required', 'string', 'max:255'],
-            'property_slug' => ['required', 'string', 'max:255'],
-//            'property_logo' => ['required', 'mimes:jpg,jpeg,png', 'max:2048'],
-            'property_color' => ['required', 'string', 'max:16'],
-            'banner_content' => ['required', 'string'],
-            'sidebar_content' => ['required', 'string'],
-            'property_footer_content' => ['required', 'string'],
-            'map_embed_url' => ['required', 'string'],
-            'property_short_desc' => ['required', 'string', 'max:255'],
-            'property_desc' => ['required', 'string'],
-            'property_highlights' => ['required', 'string'],
-            'property_location' => ['required', 'string', 'max:255'],
-            'property_price' => ['required', 'string', 'max:255'],
-            'property_rera_no' => ['required', 'string', 'max:255'],
-            'property_brochure' => ['required', 'string', 'max:255'],
-            'property_video_url' => ['required', 'string', 'max:255'],
-//            'property_type' => ['required', 'string', 'max:255'],
-//            'master_plan_image' => ['required', 'string', 'max:255'],
-//            'amenities' => ['required', 'json'],
-//            'gallery_images_id' => ['required', 'string'],
-            'virtual_site_tour' => ['required', 'string'],
-            'builder_name' => ['required', 'string'],
-            'about_developer' => ['required', 'string'],
-            'latitude' => ['required', 'string'],
-            'longitude' => ['required', 'string'],
-            'status' => ['required', 'string'],
-            'meta_title' => ['required', 'string'],
-            'meta_keywords' => ['required', 'string'],
-            'meta_description' => ['required', 'string'],
+          'property_title' => ['required', 'string', 'max:255'],
+          'property_slug' => ['required', Rule::unique('properties')->ignore($id)],
+          'property_color' => [],
+          'property_logo' => [],
+          'property_favicon' => [],
+          'banner_content' => [],
+          'mobile_no' => [],
+          'social_meta_tags' => [],
+          'property_highlights' => [],
+          'property_footer_content' => [],
+          'map_embed_url' => [],
+          'sidebar_content' => [],
+          'property_brochure' => [],
+          'property_video_url' => [],
+          'virtual_site_tour' => [],
+          'property_short_desc' => [],
+          'property_desc' => [],
+          'property_location' => [],
+          'property_desc' => [],
+          'property_price' => [],
+          'property_exclusive_text' => [],
+          'complete_costing_details' => [],
+          'property_amenities' => [],
+          'location_text' => [],
+          'property_rera_no' => [],
+          'builder_name' => [],
+          'about_developer' => [],
+          'master_plan_image' => [],
+          'by_developer_text' => [],
+          'pre_launch_text' => [],
+          'sidebar_content' => [],
+          'property_rera_no' => [],
+          'meta_title' => [],
+          'meta_keywords' => [],
+          'meta_description' => [],
+          'status' => ['required', 'string'],
         ];
     }
 }
