@@ -19,39 +19,52 @@ class Property extends Model
     protected $table = 'properties';
     public $timestamps = true;
     protected $fillable = [
-      'property_title',
-      'property_slug',
-      'mobile_no',
-      'property_logo',
-      'property_favicon',
-      'property_color',
-      'banner_content',
-      'property_highlights',
-      'property_footer_content',
-      'map_embed_url',
-      'sidebar_content',
-      'property_brochure',
-      'property_video_url',
-      'virtual_site_tour',
-      'property_desc',
-      'property_short_desc',
-      'property_location',
-      'property_price',
-      'pre_launch_text',
-      'by_developer_text',
-      'property_exclusive_text',
-      'complete_costing_details',
-      'property_amenities',
-      'location_text',
-      'property_rera_no',
-      'builder_name',
-      'about_developer',
-      'master_plan_image',
-      'status',
-      'meta_title',
-      'meta_keywords',
-      'meta_description',
-      'social_meta_tags'
+        'property_title',
+        'property_slug',
+        'property_logo',
+        'property_favicon',
+        'complete_costing_details',
+        'property_color',
+        'mobile_no',
+        'pre_launch_text',
+        'banner_content',
+        'sidebar_content',
+        'property_short_desc',
+        'property_amenities',
+        'property_footer_content',
+        'property_desc',
+        'property_highlights',
+        'property_location',
+        'by_developer_text',
+        'location_text',
+        'property_exclusive_text',
+        'property_price',
+        'property_rera_no',
+        'property_brochure',
+        'property_video_url',
+        'property_type',
+        'master_plan_image',
+        'amenities',
+        'gallery_images_id',
+        'virtual_site_tour',
+        'builder_name',
+        'about_developer',
+        'map_embed_url',
+        'status',
+        'meta_title',
+        'meta_keywords',
+        'meta_description',
+        'social_meta_tags'
+    ];
+
+    /**
+     * The attributes that should be cast.
+     *
+     * @var array<string, string>
+     */
+    protected $casts = [
+        'amenities' => 'array',
+        'status' => 'boolean',
     ];
 
     /**

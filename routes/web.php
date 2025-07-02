@@ -5,18 +5,21 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Backend\Property\PropertyController;
 use App\Http\Controllers\Backend\DashboardController;
 use App\Http\Controllers\Backend\EnquiriesController;
-use App\Http\Controllers\Admin\HowItWorkController;
-use App\Http\Controllers\Admin\BannerController;
+use App\Http\Controllers\Backend\HowItWorkController;
+use App\Http\Controllers\Backend\BannerController;
+use App\Http\Controllers\Backend\DeveloperController;
 use App\Http\Controllers\Frontend\PropertyController as FrontendPropertyController ;
 use App\Http\Controllers\Frontend\EnquiryController as FrontendEnquiryController;
 use App\Http\Controllers\Frontend\SitemapController ;
 use App\Models\HowItWork;
 use App\Models\Banner;
+use App\Models\Developer;
 
 Route::get('/', function () {
     $howItWorks = HowItWork::active()->ordered()->get();
     $banner = Banner::active()->first();
-    return view('welcome', compact('howItWorks', 'banner'));
+    $developers = Developer::active()->ordered()->limit(8)->get();
+    return view('welcome', compact('howItWorks', 'banner', 'developers'));
 });
 
 //Route::get('/dashboard', function () {
@@ -55,6 +58,17 @@ Route::resource('/admin/how-it-works', HowItWorkController::class)->middleware([
 // Banner Management routes (single banner only)
 Route::get('/admin/banner', [BannerController::class, 'index'])->middleware(['auth', 'verified'])->name('admin.banner');
 Route::put('/admin/banner', [BannerController::class, 'update'])->middleware(['auth', 'verified'])->name('admin.banner.update');
+
+// Developers CRUD routes
+Route::resource('/admin/developers', DeveloperController::class)->middleware(['auth', 'verified'])->names([
+    'index' => 'developers.index',
+    'create' => 'developers.create',
+    'store' => 'developers.store',
+    'show' => 'developers.show',
+    'edit' => 'developers.edit',
+    'update' => 'developers.update',
+    'destroy' => 'developers.destroy',
+]);
 
 Route::delete('/property/banner-delete/{id}',[PropertyController::class, 'deleteBanner'])->middleware(['auth', 'verified'])->name('property.bannerdelete');
 Route::delete('/property/gallery-delete/{id}',[PropertyController::class, 'deleteGallery'])->middleware(['auth', 'verified'])->name('property.gallerydelete');

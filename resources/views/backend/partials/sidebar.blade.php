@@ -90,6 +90,14 @@
                         </p>
                     </a>
                 </li>
+                <li class="nav-item">
+                    <a href="{{ route('developers.index') }}" class="nav-link">
+                        <i class="nav-icon fas fa-building"></i>
+                        <p>
+                            Developers
+                        </p>
+                    </a>
+                </li>
             </ul>
         </nav>
         <!-- /.sidebar-menu -->

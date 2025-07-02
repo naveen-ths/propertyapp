@@ -408,12 +408,15 @@
                                 <small>Investment: 5 / 5</small>
                             </figure>
                             <div class="wrapper">
-                                <h3><a href="{{ url('/buy/new/19-east-project-nerul-mumbai/1666') }}">19
-                                        East </a></h3>
+                                <h3>
+                                    <a href="{{ url('/buy/new/19-east-project-nerul-mumbai/1666') }}">19
+                                        East </a>
+                                </h3>
                                 <h5><a href="">by Bhagwati Group</a></h5>
                                 <p> <i class="fa-solid fa-house-chimney fa-2xs"></i> 2,3,4 BHK Apartment<br> <i
                                         class="fa-solid fa-location-dot fa-2xs"></i>
-                                    Nerul, Mumbai</p>
+                                    Nerul, Mumbai
+                                </p>
                                 <a class="address">
                                     ₹ 1.97 Cr - 6.81 Cr
                                 </a>
@@ -426,10 +429,12 @@
                                         Enquire Now
                                     </button>
                                 </li>
-                                <li> <button class="btn btn-primary whatbtn"
+                                <li>
+                                    <button class="btn btn-primary whatbtn"
                                         onclick="window.open('https://api.whatsapp.com/send?phone=+919310963636&amp;text=Hi!%20I\'m%20Interested%20In%2019 East, Nerul.%20Please%20Share%20Details.', '_blank');">
                                         <i class="fa fa-whatsapp" aria-hidden="true"></i>
-                                    </button></li>
+                                    </button>
+                                </li>
                             </ul>
                         </div>
                     </div>
@@ -446,7 +451,8 @@
                             </figure>
                             <div class="wrapper">
                                 <h3><a href="{{ url('/buy/new/varsha-balaji-park-project-kharghar-mumbai/1665') }}">Varsha
-                                        Balaji Park </a></h3>
+                                        Balaji Park </a>
+                                </h3>
                                 <h5><a href="">by Varsha Group</a></h5>
                                 <p> <i class="fa-solid fa-house-chimney fa-2xs"></i> 2,3 BHK Apartment<br> <i
                                         class="fa-solid fa-location-dot fa-2xs"></i>
@@ -463,10 +469,12 @@
                                         Enquire Now
                                     </button>
                                 </li>
-                                <li> <button class="btn btn-primary whatbtn"
+                                <li>
+                                    <button class="btn btn-primary whatbtn"
                                         onclick="window.open('https://api.whatsapp.com/send?phone=+919310963636&amp;text=Hi!%20I\'m%20Interested%20In%20Varsha Balaji Park, Kharghar.%20Please%20Share%20Details.', '_blank');">
                                         <i class="fa fa-whatsapp" aria-hidden="true"></i>
-                                    </button></li>
+                                    </button>
+                                </li>
                             </ul>
                         </div>
                     </div>
@@ -482,8 +490,10 @@
                                 <small>Investment: 5 / 5</small>
                             </figure>
                             <div class="wrapper">
-                                <h3><a href="{{ url('/buy/new/uma-ananta-project-kharghar-mumbai/1652') }}">Uma
-                                        Ananta </a></h3>
+                                <h3>
+                                    <a href="{{ url('/buy/new/uma-ananta-project-kharghar-mumbai/1652') }}">
+                                        Uma Ananta </a>
+                                </h3>
                                 <h5><a href="">by Uma Infratech</a></h5>
                                 <p> <i class="fa-solid fa-house-chimney fa-2xs"></i> 2,3 BHK Apartment<br> <i
                                         class="fa-solid fa-location-dot fa-2xs"></i>
@@ -559,13 +569,17 @@
                                 <small>Investment: 5 / 5</small>
                             </figure>
                             <div class="wrapper">
-                                <h3><a
+                                <h3>
+                                    <a
                                         href="https://keystonerealestateadvisory.com/buy/new/queens-necklace-project-kharghar-mumbai/1647">Queens
-                                        Necklace </a></h3>
+                                        Necklace
+                                    </a>
+                                </h3>
                                 <h5><a href="">by Satyam Developers</a></h5>
                                 <p> <i class="fa-solid fa-house-chimney fa-2xs"></i> 1,2 BHK Apartment<br> <i
                                         class="fa-solid fa-location-dot fa-2xs"></i>
-                                    Kharghar, Mumbai</p>
+                                    Kharghar, Mumbai
+                                </p>
                                 <a class="address">
                                     ₹ 57.93 Lac - 94.59 Lac
                                 </a>
@@ -581,7 +595,8 @@
                                 <li> <button class="btn btn-primary whatbtn"
                                         onclick="window.open('https://api.whatsapp.com/send?phone=+919310963636&amp;text=Hi!%20I\'m%20Interested%20In%20Queens Necklace, Kharghar.%20Please%20Share%20Details.', '_blank');">
                                         <i class="fa fa-whatsapp" aria-hidden="true"></i>
-                                    </button></li>
+                                    </button>
+                                </li>
                             </ul>
                         </div>
                     </div>
@@ -778,526 +793,82 @@
                     <div class="main_title_3">
                         <span><em></em></span>
                         <h2>Reputed Developers in Mumbai </h2>
-                        <a href="https://keystonerealestateadvisory.com/developers-in-mumbai">See all</a>
+                        <a href="{{ url('/developers-in-mumbai') }}">See all</a>
                     </div>
                     <!--<div class="swiper-container">-->
                     <div id="carousel_in_dev" class="owl-carousel owl-theme hide-desktop">
-                        <a href="https://keystonerealestateadvisory.com/buy/lodha-group-projects-in-mumbai">
-                            <div class="blocks">
-                                <ul class="menu_list">
-                                    <li>
-                                        <div class="thumb">
-                                            <img src="https://keystonerealestateadvisory.com/storage/app/uploads/developer/nZtsHoi2qQf6OmzYZz6eOplTaTtYJWeqxmkzd7HT.jpg"
-                                                alt="Lodha Group" width="100" height="100">
-                                        </div>
-                                        <h6> Lodha Group</h6>
-                                        <h6>
-                                            <i class="fa fa-star voted"></i>
-                                            <i class="fa fa-star voted"></i>
-                                            <i class="fa fa-star voted"></i>
-                                            <i class="fa fa-star voted"></i>
-                                            <i class="fa fa-star voted"></i>
-                                        </h6>
-                                        <p> 86 Projects</p>
-                                    </li>
-                                </ul>
+                        @forelse($developers as $developer)
+                            @if($developer->website_url)
+                                <a href="{{ $developer->website_url }}" target="_blank">
+                            @else
+                                <div>
+                            @endif
+                                <div class="blocks">
+                                    <ul class="menu_list">
+                                        <li>
+                                            <div class="thumb">
+                                                @if($developer->logo_url)
+                                                    <img src="{{ $developer->logo_url }}" alt="{{ $developer->name }}" width="100" height="100">
+                                                @else
+                                                    <div class="placeholder-logo" style="width: 100px; height: 100px; background: #f0f0f0; display: flex; align-items: center; justify-content: center; border-radius: 50%;">
+                                                        <span style="font-size: 12px; color: #666;">No Logo</span>
+                                                    </div>
+                                                @endif
+                                            </div>
+                                            <h6>{{ $developer->name }}</h6>
+                                            <h6>{!! $developer->star_rating !!}</h6>
+                                            <p>{{ $developer->projects_count }} Projects</p>
+                                        </li>
+                                    </ul>
+                                </div>
+                            @if($developer->website_url)
+                                </a>
+                            @else
+                                </div>
+                            @endif
+                        @empty
+                            <div class="text-center">
+                                <p>No developers found</p>
                             </div>
-                        </a>
-                        <a href="https://keystonerealestateadvisory.com/buy/godrej-properties-projects-in-mumbai">
-                            <div class="blocks">
-                                <ul class="menu_list">
-                                    <li>
-                                        <div class="thumb">
-                                            <img src="https://keystonerealestateadvisory.com/storage/app/uploads/developer/nweD3AeoqkI43M0guoSrXEDRti0RJnrwzQ1Dp4Z7.webp"
-                                                alt="Godrej Properties" width="100" height="100">
-                                        </div>
-                                        <h6> Godrej Properties</h6>
-                                        <h6>
-
-                                            <i class="fa fa-star voted"></i>
-
-                                            <i class="fa fa-star voted"></i>
-
-                                            <i class="fa fa-star voted"></i>
-
-                                            <i class="fa fa-star voted"></i>
-
-                                            <i class="fa fa-star-half voted"></i>
-
-
-
-                                        </h6>
-                                        <p> 58 Projects</p>
-
-
-                                    </li>
-                                </ul>
-
-                            </div>
-                        </a>
-                        <a href="https://keystonerealestateadvisory.com/buy/piramal-realty-projects-in-mumbai">
-                            <div class="blocks">
-                                <ul class="menu_list">
-                                    <li>
-                                        <div class="thumb">
-                                            <img src="https://keystonerealestateadvisory.com/storage/app/uploads/developer/0eOsXpaUDgNuxrd8uSlVyHXGu1vUmHpDUaHI7pV1.jpg"
-                                                alt="Piramal Realty" width="100" height="100">
-                                        </div>
-                                        <h6> Piramal Realty</h6>
-                                        <h6>
-
-                                            <i class="fa fa-star voted"></i>
-
-                                            <i class="fa fa-star voted"></i>
-
-                                            <i class="fa fa-star voted"></i>
-
-                                            <i class="fa fa-star voted"></i>
-
-                                            <i class="fa fa-star-half voted"></i>
-
-
-
-                                        </h6>
-                                        <p> 8 Projects</p>
-
-
-                                    </li>
-                                </ul>
-
-                            </div>
-                        </a>
-                        <a href="https://keystonerealestateadvisory.com/buy/chandak-group-projects-in-mumbai">
-                            <div class="blocks">
-                                <ul class="menu_list">
-                                    <li>
-                                        <div class="thumb">
-                                            <img src="https://keystonerealestateadvisory.com/storage/app/uploads/developer/ymcEzinZm9LeLcA0ILqMlbP5SgHVRfsgKk9qV9tT.jpg"
-                                                alt="Chandak Group" width="100" height="100">
-                                        </div>
-                                        <h6> Chandak Group</h6>
-                                        <h6>
-
-                                            <i class="fa fa-star voted"></i>
-
-                                            <i class="fa fa-star voted"></i>
-
-                                            <i class="fa fa-star voted"></i>
-
-                                            <i class="fa fa-star voted"></i>
-
-                                            <i class="fa fa-star-half voted"></i>
-
-
-
-                                        </h6>
-                                        <p> 14 Projects</p>
-
-
-                                    </li>
-                                </ul>
-
-                            </div>
-                        </a>
-                        <a href="https://keystonerealestateadvisory.com/buy/adani-realty-projects-in-mumbai">
-                            <div class="blocks">
-                                <ul class="menu_list">
-                                    <li>
-                                        <div class="thumb">
-                                            <img src="https://keystonerealestateadvisory.com/storage/app/uploads/developer/SBPpvrEQZ5IPUeYxFnPGf1bs6i1U1DkFDy8PTZLV.webp"
-                                                alt="Adani Realty" width="100" height="100">
-                                        </div>
-                                        <h6> Adani Realty</h6>
-                                        <h6>
-
-                                            <i class="fa fa-star voted"></i>
-
-                                            <i class="fa fa-star voted"></i>
-
-                                            <i class="fa fa-star voted"></i>
-
-                                            <i class="fa fa-star voted"></i>
-
-                                            <i class="fa fa-star-half voted"></i>
-
-
-
-                                        </h6>
-                                        <p> 12 Projects</p>
-
-
-                                    </li>
-                                </ul>
-
-                            </div>
-                        </a>
-                        <a href="https://keystonerealestateadvisory.com/buy/mahindra-lifespaces-projects-in-mumbai">
-                            <div class="blocks">
-                                <ul class="menu_list">
-                                    <li>
-                                        <div class="thumb">
-                                            <img src="https://keystonerealestateadvisory.com/storage/app/uploads/developer/v6Obzt9ULIedA9FmfIIcKYc3nDfL8yjB2YGzAvyx.png"
-                                                alt="Mahindra Lifespaces" width="100" height="100">
-                                        </div>
-                                        <h6> Mahindra Lifespaces</h6>
-                                        <h6>
-
-                                            <i class="fa fa-star voted"></i>
-
-                                            <i class="fa fa-star voted"></i>
-
-                                            <i class="fa fa-star voted"></i>
-
-                                            <i class="fa fa-star voted"></i>
-
-
-
-                                        </h6>
-                                        <p> 15 Projects</p>
-
-
-                                    </li>
-                                </ul>
-
-                            </div>
-                        </a>
-                        <a href="https://keystonerealestateadvisory.com/buy/platinum-corp-projects-in-mumbai">
-                            <div class="blocks">
-                                <ul class="menu_list">
-                                    <li>
-                                        <div class="thumb">
-                                            <img src="https://keystonerealestateadvisory.com/storage/app/uploads/developer/WvL4kSFlwoFodu4XoJCnTvfyYJIfd8QYwEXtmPUL.png"
-                                                alt="Platinum Corp" width="100" height="100">
-                                        </div>
-                                        <h6> Platinum Corp</h6>
-                                        <h6>
-
-                                            <i class="fa fa-star voted"></i>
-
-                                            <i class="fa fa-star voted"></i>
-
-                                            <i class="fa fa-star voted"></i>
-
-                                            <i class="fa fa-star voted"></i>
-
-
-
-                                        </h6>
-                                        <p> 11 Projects</p>
-
-
-                                    </li>
-                                </ul>
-
-                            </div>
-                        </a>
-                        <a href="https://keystonerealestateadvisory.com/buy/kanakia-group-projects-in-mumbai">
-                            <div class="blocks">
-                                <ul class="menu_list">
-                                    <li>
-                                        <div class="thumb">
-                                            <img src="https://keystonerealestateadvisory.com/storage/app/uploads/developer/6PY0ys0E6qnT7fXUsk7BMonePsLphnrHJaZVJ8Mj.webp"
-                                                alt="Kanakia Group" width="100" height="100">
-                                        </div>
-                                        <h6> Kanakia Group</h6>
-                                        <h6>
-
-                                            <i class="fa fa-star voted"></i>
-
-                                            <i class="fa fa-star voted"></i>
-
-                                            <i class="fa fa-star voted"></i>
-
-                                            <i class="fa fa-star voted"></i>
-
-
-
-                                        </h6>
-                                        <p> 3 Projects</p>
-
-
-                                    </li>
-                                </ul>
-
-                            </div>
-                        </a>
+                        @endforelse
                     </div>
                     <div class="row hide-mobile">
-                        <div class="col-md-3">
-                            <a href="https://keystonerealestateadvisory.com/buy/lodha-group-projects-in-mumbai">
-                                <div class="blocks">
-                                    <ul class="menu_list">
-                                        <li>
-                                            <div class="thumb">
-                                                <img src="https://keystonerealestateadvisory.com/storage/app/uploads/developer/nZtsHoi2qQf6OmzYZz6eOplTaTtYJWeqxmkzd7HT.jpg"
-                                                    alt="Lodha Group" width="100" height="100">
-                                            </div>
-                                            <h6> Lodha Group</h6>
-                                            <h6>
-
-                                                <i class="fa fa-star voted"></i>
-
-                                                <i class="fa fa-star voted"></i>
-
-                                                <i class="fa fa-star voted"></i>
-
-                                                <i class="fa fa-star voted"></i>
-
-                                                <i class="fa fa-star voted"></i>
-
-
-
-
-                                            </h6>
-                                            <p> 86 Projects</p>
-
-
-                                        </li>
-                                    </ul>
-
-                                </div>
-                            </a>
-                        </div>
-                        <div class="col-md-3">
-                            <a href="https://keystonerealestateadvisory.com/buy/godrej-properties-projects-in-mumbai">
-                                <div class="blocks">
-                                    <ul class="menu_list">
-                                        <li>
-                                            <div class="thumb">
-                                                <img src="https://keystonerealestateadvisory.com/storage/app/uploads/developer/nweD3AeoqkI43M0guoSrXEDRti0RJnrwzQ1Dp4Z7.webp"
-                                                    alt="Godrej Properties" width="100" height="100">
-                                            </div>
-                                            <h6> Godrej Properties</h6>
-                                            <h6>
-
-                                                <i class="fa fa-star voted"></i>
-
-                                                <i class="fa fa-star voted"></i>
-
-                                                <i class="fa fa-star voted"></i>
-
-                                                <i class="fa fa-star voted"></i>
-
-                                                <i class="fa fa-star-half voted"></i>
-
-
-
-
-                                            </h6>
-                                            <p> 58 Projects</p>
-
-
-                                        </li>
-                                    </ul>
-
-                                </div>
-                            </a>
-                        </div>
-                        <div class="col-md-3">
-                            <a href="https://keystonerealestateadvisory.com/buy/piramal-realty-projects-in-mumbai">
-                                <div class="blocks">
-                                    <ul class="menu_list">
-                                        <li>
-                                            <div class="thumb">
-                                                <img src="https://keystonerealestateadvisory.com/storage/app/uploads/developer/0eOsXpaUDgNuxrd8uSlVyHXGu1vUmHpDUaHI7pV1.jpg"
-                                                    alt="Piramal Realty" width="100" height="100">
-                                            </div>
-                                            <h6> Piramal Realty</h6>
-                                            <h6>
-
-                                                <i class="fa fa-star voted"></i>
-
-                                                <i class="fa fa-star voted"></i>
-
-                                                <i class="fa fa-star voted"></i>
-
-                                                <i class="fa fa-star voted"></i>
-
-                                                <i class="fa fa-star-half voted"></i>
-
-
-
-
-                                            </h6>
-                                            <p> 8 Projects</p>
-
-
-                                        </li>
-                                    </ul>
-
-                                </div>
-                            </a>
-                        </div>
-                        <div class="col-md-3">
-                            <a href="https://keystonerealestateadvisory.com/buy/chandak-group-projects-in-mumbai">
-                                <div class="blocks">
-                                    <ul class="menu_list">
-                                        <li>
-                                            <div class="thumb">
-                                                <img src="https://keystonerealestateadvisory.com/storage/app/uploads/developer/ymcEzinZm9LeLcA0ILqMlbP5SgHVRfsgKk9qV9tT.jpg"
-                                                    alt="Chandak Group" width="100" height="100">
-                                            </div>
-                                            <h6> Chandak Group</h6>
-                                            <h6>
-
-                                                <i class="fa fa-star voted"></i>
-
-                                                <i class="fa fa-star voted"></i>
-
-                                                <i class="fa fa-star voted"></i>
-
-                                                <i class="fa fa-star voted"></i>
-
-                                                <i class="fa fa-star-half voted"></i>
-
-
-
-
-                                            </h6>
-                                            <p> 14 Projects</p>
-
-
-                                        </li>
-                                    </ul>
-
-                                </div>
-                            </a>
-                        </div>
-                        <div class="col-md-3">
-                            <a href="https://keystonerealestateadvisory.com/buy/adani-realty-projects-in-mumbai">
-                                <div class="blocks">
-                                    <ul class="menu_list">
-                                        <li>
-                                            <div class="thumb">
-                                                <img src="https://keystonerealestateadvisory.com/storage/app/uploads/developer/SBPpvrEQZ5IPUeYxFnPGf1bs6i1U1DkFDy8PTZLV.webp"
-                                                    alt="Adani Realty" width="100" height="100">
-                                            </div>
-                                            <h6> Adani Realty</h6>
-                                            <h6>
-
-                                                <i class="fa fa-star voted"></i>
-
-                                                <i class="fa fa-star voted"></i>
-
-                                                <i class="fa fa-star voted"></i>
-
-                                                <i class="fa fa-star voted"></i>
-
-                                                <i class="fa fa-star-half voted"></i>
-
-
-
-
-                                            </h6>
-                                            <p> 12 Projects</p>
-
-
-                                        </li>
-                                    </ul>
-
-                                </div>
-                            </a>
-                        </div>
-                        <div class="col-md-3">
-                            <a
-                                href="https://keystonerealestateadvisory.com/buy/mahindra-lifespaces-projects-in-mumbai">
-                                <div class="blocks">
-                                    <ul class="menu_list">
-                                        <li>
-                                            <div class="thumb">
-                                                <img src="https://keystonerealestateadvisory.com/storage/app/uploads/developer/v6Obzt9ULIedA9FmfIIcKYc3nDfL8yjB2YGzAvyx.png"
-                                                    alt="Mahindra Lifespaces" width="100" height="100">
-                                            </div>
-                                            <h6> Mahindra Lifespaces</h6>
-                                            <h6>
-
-                                                <i class="fa fa-star voted"></i>
-
-                                                <i class="fa fa-star voted"></i>
-
-                                                <i class="fa fa-star voted"></i>
-
-                                                <i class="fa fa-star voted"></i>
-
-
-
-
-                                            </h6>
-                                            <p> 15 Projects</p>
-
-
-                                        </li>
-                                    </ul>
-
-                                </div>
-                            </a>
-                        </div>
-                        <div class="col-md-3">
-                            <a href="https://keystonerealestateadvisory.com/buy/platinum-corp-projects-in-mumbai">
-                                <div class="blocks">
-                                    <ul class="menu_list">
-                                        <li>
-                                            <div class="thumb">
-                                                <img src="https://keystonerealestateadvisory.com/storage/app/uploads/developer/WvL4kSFlwoFodu4XoJCnTvfyYJIfd8QYwEXtmPUL.png"
-                                                    alt="Platinum Corp" width="100" height="100">
-                                            </div>
-                                            <h6> Platinum Corp</h6>
-                                            <h6>
-
-                                                <i class="fa fa-star voted"></i>
-
-                                                <i class="fa fa-star voted"></i>
-
-                                                <i class="fa fa-star voted"></i>
-
-                                                <i class="fa fa-star voted"></i>
-
-
-
-
-                                            </h6>
-                                            <p> 11 Projects</p>
-
-
-                                        </li>
-                                    </ul>
-
-                                </div>
-                            </a>
-                        </div>
-                        <div class="col-md-3">
-                            <a href="https://keystonerealestateadvisory.com/buy/kanakia-group-projects-in-mumbai">
-                                <div class="blocks">
-                                    <ul class="menu_list">
-                                        <li>
-                                            <div class="thumb">
-                                                <img src="https://keystonerealestateadvisory.com/storage/app/uploads/developer/6PY0ys0E6qnT7fXUsk7BMonePsLphnrHJaZVJ8Mj.webp"
-                                                    alt="Kanakia Group" width="100" height="100">
-                                            </div>
-                                            <h6> Kanakia Group</h6>
-                                            <h6>
-
-                                                <i class="fa fa-star voted"></i>
-
-                                                <i class="fa fa-star voted"></i>
-
-                                                <i class="fa fa-star voted"></i>
-
-                                                <i class="fa fa-star voted"></i>
-
-
-
-
-                                            </h6>
-                                            <p> 3 Projects</p>
-
-
-                                        </li>
-                                    </ul>
-
-                                </div>
-                            </a>
-                        </div>
+                        @forelse($developers->take(8) as $developer)
+                            <div class="col-md-3">
+                                @if($developer->website_url)
+                                    <a href="{{ $developer->website_url }}" target="_blank">
+                                @else
+                                    <div>
+                                @endif
+                                    <div class="blocks">
+                                        <ul class="menu_list">
+                                            <li>
+                                                <div class="thumb">
+                                                    @if($developer->logo_url)
+                                                        <img src="{{ $developer->logo_url }}" alt="{{ $developer->name }}" width="100" height="100">
+                                                    @else
+                                                        <div class="placeholder-logo" style="width: 100px; height: 100px; background: #f0f0f0; display: flex; align-items: center; justify-content: center; border-radius: 50%;">
+                                                            <span style="font-size: 12px; color: #666;">No Logo</span>
+                                                        </div>
+                                                    @endif
+                                                </div>
+                                                <h6>{{ $developer->name }}</h6>
+                                                <h6>{!! $developer->star_rating !!}</h6>
+                                                <p>{{ $developer->projects_count }} Projects</p>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                @if($developer->website_url)
+                                    </a>
+                                @else
+                                    </div>
+                                @endif
+                            </div>
+                        @empty
+                            <div class="col-12 text-center">
+                                <p>No developers found</p>
+                            </div>
+                        @endforelse
                     </div>
                     <!-- Add Pagination -->
                     <!--  <div class="swiper-pagination"></div>-->
