@@ -1,0 +1,112 @@
+/* Custom CSS for Property App */
+
+.btn.btn-primary.whatbtn {
+    background: none;
+    position: absolute;
+    bottom: 3px;
+    right: 21px;
+    color: #37b824;
+    /* border: 1px solid navy; */
+    padding: 2px;
+    font-size: 22px;
+    border: none;
+}
+
+.mobfooter ul.mob-action.nav.nav-fill.d-sm-block.d-lg-none {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: var(--colorPrimary);
+    color: var(--colorBtn);
+    box-shadow: 0 1px 6px 2px rgba(0, 0, 0, .4);
+    z-index: 1030;
+    /* background: red; */
+}
+
+.mobfooter li.nav-item {
+    padding: 10px 0;
+    text-align: center;
+    font-size: 14px;
+    width: 32%;
+    display: inline-flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    color: #011e48;
+    background: #fab70a !important;
+    margin: 0;
+}
+
+span.ti-angle-down {
+    font-size: 12px;
+    margin-left: 2px;
+    font-weight: 600;
+}
+
+img.footerlogo {
+    width: 50%;
+}
+
+@media only screen and (max-width: 600px) {
+    .searchpz {
+        display: none;
+    }
+
+    .header_in #logo img {
+        width: 100px;
+    }
+
+    img.footerlogo {
+        width: 40%;
+    }
+}
+
+footer a:focus {
+    color: #fff;
+}
+
+.sticky_whatsapp {
+    bottom: 17%;
+    right: -142px;
+    z-index: 999;
+    position: fixed !important;
+    vertical-align: middle;
+    width: 213px;
+    background-color: rgba(47, 23, 23, 0);
+    display: inline-block;
+    height: auto;
+    position: static;
+    max-width: 600px;
+    font-size: 45px;
+}
+
+i.fa-brands.fa-whatsapp.stickywhat {
+    color: #37b724;
+}
+
+img.img-responsive.imgg {
+    position: relative;
+    height: 46px;
+    text-align: center;
+    cursor: pointer;
+    background: var(--colorPrimary);
+    top: -50px;
+    transform: rotate(270deg);
+    font-size: 18px;
+    color: #fff;
+    line-height: 34px;
+    right: -147px;
+}
+
+.row.g-0.custom-search-input-2.inner {
+    display: none;
+}
+
+a.btn_1.rounded.loan {
+    position: absolute;
+    top: 80%;
+    right: 25%;
+    background: #faa70a;
+    color: #011e48;
+}
