@@ -44,8 +44,8 @@ class BannerController extends Controller
             'description' => 'nullable|string',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
             'image_url' => 'nullable|url',
-            'button_text' => 'nullable|string|max:100',
-            'button_url' => 'nullable|url',
+            'button_text' => 'required|string|max:100',
+            'button_url' => 'required|url',
             'status' => 'required|boolean'
         ]);
 

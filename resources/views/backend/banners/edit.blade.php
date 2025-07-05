@@ -75,11 +75,12 @@
                                         <div class="row">
                                             <div class="col-md-6">
                                                 <div class="form-group">
-                                                    <label for="button_text">Button Text</label>
+                                                    <label for="button_text">Button Text *</label>
                                                     <input type="text"
                                                         class="form-control @error('button_text') is-invalid @enderror"
                                                         id="button_text" name="button_text"
-                                                        value="{{ old('button_text', $banner->button_text) }}">
+                                                        value="{{ old('button_text', $banner->button_text) }}"
+                                                        required>
                                                     @error('button_text')
                                                         <span class="invalid-feedback">{{ $message }}</span>
                                                     @enderror
@@ -87,11 +88,12 @@
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="form-group">
-                                                    <label for="button_url">Button URL</label>
+                                                    <label for="button_url">Button URL *</label>
                                                     <input type="url"
                                                         class="form-control @error('button_url') is-invalid @enderror"
                                                         id="button_url" name="button_url"
-                                                        value="{{ old('button_url', $banner->button_url) }}">
+                                                        value="{{ old('button_url', $banner->button_url) }}"
+                                                        required>
                                                     @error('button_url')
                                                         <span class="invalid-feedback">{{ $message }}</span>
                                                     @enderror

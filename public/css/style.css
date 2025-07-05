@@ -944,7 +944,7 @@ main.pattern{
                   transform:translate(-50%,-50%) scale(1.1)
                 }
                   a.grid_item.small{height:170px}a.grid_item.prop.small,a.grid_item.ps.small{height:270px}
-                  span.pricing{z-index:99999;float:right;padding:0 12px;font-size:20px;
+                  span.pricing{z-index:99999;float:right;padding:0 12px;font-size:16px;
                     font-weight:600;color:#fff;top:82%}
                     small.dnames{padding:4px 12px;background:#fab702;color:#011e48;
                       font-weight:600;font-size:14px;left:0;bottom:-4px}

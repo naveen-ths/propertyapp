@@ -11,16 +11,12 @@ use App\Http\Controllers\Backend\DeveloperController;
 use App\Http\Controllers\Frontend\PropertyController as FrontendPropertyController ;
 use App\Http\Controllers\Frontend\EnquiryController as FrontendEnquiryController;
 use App\Http\Controllers\Frontend\SitemapController ;
+use App\Http\Controllers\Frontend\HomeController;
 use App\Models\HowItWork;
 use App\Models\Banner;
 use App\Models\Developer;
 
-Route::get('/', function () {
-    $howItWorks = HowItWork::active()->ordered()->get();
-    $banner = Banner::active()->first();
-    $developers = Developer::active()->ordered()->limit(8)->get();
-    return view('welcome', compact('howItWorks', 'banner', 'developers'));
-});
+Route::get('/', [HomeController::class, 'index']);
 
 //Route::get('/dashboard', function () {
 //    return view('dashboard');
@@ -70,6 +66,17 @@ Route::resource('/admin/developers', DeveloperController::class)->middleware(['a
     'destroy' => 'developers.destroy',
 ]);
 
+// Investment Opportunities CRUD routes
+Route::resource('/admin/investment-opportunities', \App\Http\Controllers\Backend\InvestmentOpportunityController::class)->middleware(['auth', 'verified'])->names([
+    'index' => 'investment-opportunities.index',
+    'create' => 'investment-opportunities.create',
+    'store' => 'investment-opportunities.store',
+    'show' => 'investment-opportunities.show',
+    'edit' => 'investment-opportunities.edit',
+    'update' => 'investment-opportunities.update',
+    'destroy' => 'investment-opportunities.destroy',
+]);
+
 Route::delete('/property/banner-delete/{id}',[PropertyController::class, 'deleteBanner'])->middleware(['auth', 'verified'])->name('property.bannerdelete');
 Route::delete('/property/gallery-delete/{id}',[PropertyController::class, 'deleteGallery'])->middleware(['auth', 'verified'])->name('property.gallerydelete');
 Route::patch('/property/location-delete',[PropertyController::class, 'locationDelete'])->middleware(['auth', 'verified'])->name('property.locationdelete');
@@ -77,5 +84,8 @@ Route::patch('/property/location-delete',[PropertyController::class, 'locationDe
 // FRONTEND Routes
 Route::get('/sitemap', [SitemapController::class, 'index'])->name('frontend.sitemap');
 Route::get('/property', [FrontendPropertyController::class, 'index'])->name('frontend.properties');
+Route::get('/get-location-data', [HomeController::class, 'getLocationData'])->name('get.location.data');
+Route::get('/search', [HomeController::class, 'search'])->name('search.properties');
+Route::get('/search-results', [FrontendPropertyController::class, 'searchResults'])->name('search.results');
 Route::get('/{slug}', [FrontendPropertyController::class, 'details'])->name('frontend.property.details');
 Route::post('/enquiry', [FrontendEnquiryController::class, 'submit'])->name('enquiry.submit');
