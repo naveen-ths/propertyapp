@@ -119,6 +119,23 @@
                             <div class="form-text text-danger">{{ $message }}</div>
                             @enderror
                         </div>
+                        <div class="form-group">
+                            <div class="form-check">
+                                <input 
+                                    class="form-check-input @error('top_selling') is-invalid @enderror" 
+                                    type="checkbox" 
+                                    value="1" 
+                                    name="top_selling" 
+                                    id="top_selling"
+                                    {{ old('top_selling') ? 'checked' : '' }}>
+                                <label class="form-check-label" for="top_selling">
+                                    {{ __('Show in Top Selling Projects') }}
+                                </label>
+                                @error('top_selling')
+                                <div class="form-text text-danger">{{ $message }}</div>
+                                @enderror
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="card card-primary">
@@ -663,6 +680,20 @@
                             @enderror
                         </div>
                         <div class="form-group">
+                            <label for="developer_logo">Developer Logo</label>
+                            <br>
+                            <div class="developer-logo-preview">
+                            </div>
+                            <div class="mt-3">
+                                <div role="button" class="btn btn-primary btn-sm upload-btn">
+                                    <input type="file" class="img-input" id="developer_logo" name="developer_logo" accept="image/*">
+                                </div>
+                            </div>
+                            @error('developer_logo')
+                            <div class="form-text text-danger">{{ $message }}</div>
+                            @enderror
+                        </div>
+                        <div class="form-group">
                             <label for="about_developer">Developer About</label>
                             <textarea 
                                 class="summernote @error('about_developer') is-invalid @enderror" 
@@ -813,6 +844,9 @@
         });
         $('#property_favicon').on('change', function () {
             imagesPreview(this, 'div.favicon-preview');
+        });
+        $('#developer_logo').on('change', function () {
+            imagesPreview(this, 'div.developer-logo-preview');
         });
         $('#virtual_site_tour').on('change', function () {
             imagesPreview(this, 'div.thumb-preview-tour');

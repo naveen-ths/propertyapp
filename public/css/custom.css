@@ -110,3 +110,12 @@ a.btn_1.rounded.loan {
     background: #faa70a;
     color: #011e48;
 }
+
+/* Simple grid spacing - works with Bootstrap */
+#investment-properties-grid {
+    margin-top: 20px;
+}
+
+#investment-properties-grid [class*="col-"] {
+    margin-bottom: 30px;
+}

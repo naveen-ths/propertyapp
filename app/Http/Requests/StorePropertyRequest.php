@@ -40,7 +40,6 @@ class StorePropertyRequest extends FormRequest
           'property_desc' => [],
           'property_location' => [],
           'property_short_desc' => [],
-          'property_desc' => [],
           'property_price' => [],
           'property_exclusive_text' => [],
           'complete_costing_details' => [],
@@ -49,15 +48,15 @@ class StorePropertyRequest extends FormRequest
           'property_rera_no' => [],
           'builder_name' => [],
           'about_developer' => [],
+          'developer_logo' => [],
           'master_plan_image' => [],
           'by_developer_text' => [],
           'pre_launch_text' => [],
-          'sidebar_content' => [],
-          'property_rera_no' => [],
           'meta_title' => [],
           'meta_keywords' => [],
           'meta_description' => [],
           'status' => ['required', 'string'],
+          'top_selling' => ['nullable', 'boolean'],
         ];
     }
 }

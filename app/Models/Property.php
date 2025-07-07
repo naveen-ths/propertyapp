@@ -48,9 +48,11 @@ class Property extends Model
         'gallery_images_id',
         'virtual_site_tour',
         'builder_name',
+        'developer_logo',
         'about_developer',
         'map_embed_url',
         'status',
+        'top_selling',
         'meta_title',
         'meta_keywords',
         'meta_description',
@@ -65,6 +67,7 @@ class Property extends Model
     protected $casts = [
         'amenities' => 'array',
         'status' => 'boolean',
+        'top_selling' => 'boolean',
     ];
 
     /**

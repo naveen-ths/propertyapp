@@ -234,8 +234,16 @@
                         <h2 id="top-investment-title">Top Investment Opportunity in {{ ucfirst($defaultLocation) }}</h2>
                         <p>Exclusive deals on Residential Projects</p>
                     </div>
-                    <div id="carousel_in" class="owl-carousel owl-theme">
+                    <div id="investment-properties-grid" class="row">
                         <!-- Top investment properties will be loaded here dynamically -->
+                    </div>
+                    <div class="text-center mt-4">
+                        <button id="view-more-investment" class="btn btn-primary" style="display: none;">
+                            View More Properties
+                        </button>
+                        <div id="loading-investment" style="display: none;">
+                            <i class="fa fa-spinner fa-spin"></i> Loading...
+                        </div>
                     </div>
                 </div>
 

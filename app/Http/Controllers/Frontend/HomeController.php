@@ -8,7 +8,6 @@ use App\Models\Developer;
 use App\Models\HowItWork;
 use App\Models\Banner;
 use App\Models\Setting;
-use App\Models\InvestmentOpportunity;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller {
@@ -48,34 +47,64 @@ class HomeController extends Controller {
 
   public function getLocationData(Request $request) {
     $location = $request->input('location', 'mumbai');
+    $page = $request->input('page', 1);
+    $perPage = 4;
 
-    // Get properties by location - assuming location is stored in property_location field
+    // Get top selling properties by location
     $topSellingProperties = Property::where('status', true)
+            ->where('top_selling', true) // Only get properties marked as top selling
             ->whereRaw('LOWER(property_location) LIKE ?', ['%' . strtolower($location) . '%'])
             ->orderBy('created_at', 'desc')
             ->limit(8)
             ->get();
 
-    // Get investment opportunities by location
-    $topInvestmentOpportunities = InvestmentOpportunity::where('status', true)
-            ->whereRaw('LOWER(location) = ?', [strtolower($location)])
-            ->orderBy('sort_order', 'asc')
-            ->orderBy('created_at', 'desc')
-            ->limit(8)
+    // Get investment opportunities from properties table by location with pagination
+    $investmentQuery = Property::where('status', true)
+            ->whereRaw('LOWER(property_location) LIKE ?', ['%' . strtolower($location) . '%'])
+            ->orderBy('created_at', 'desc');
+            
+    $totalInvestmentProperties = $investmentQuery->count();
+    $topInvestmentOpportunities = $investmentQuery
+            ->skip(($page - 1) * $perPage)
+            ->take($perPage)
             ->get();
+            
+    $hasMoreInvestmentProperties = $totalInvestmentProperties > ($page * $perPage);
 
-    // Get developers by location
-    $developers = Developer::active()
-            ->whereRaw('LOWER(location) LIKE ?', ['%' . strtolower($location) . '%'])
-            ->ordered()
+    // Get developers from properties table by location (unique builders)
+    $developers = Property::where('status', true)
+            ->whereRaw('LOWER(property_location) LIKE ?', ['%' . strtolower($location) . '%'])
+            ->whereNotNull('builder_name')
+            ->select('builder_name', 'developer_logo', 'about_developer', 'property_location')
+            ->groupBy('builder_name', 'developer_logo', 'about_developer', 'property_location')
+            ->orderBy('builder_name', 'asc')
             ->limit(8)
-            ->get();
+            ->get()
+            ->map(function($property) {
+                $logoUrl = null;
+                if ($property->developer_logo) {
+                    $logoUrl = asset('assets/img/property/developer/' . $property->developer_logo);
+                }
+                
+                return [
+                    'name' => $property->builder_name,
+                    'logo_url' => $logoUrl,
+                    'description' => $property->about_developer ?: 'Leading real estate developer',
+                    'location' => $property->property_location,
+                    'star_rating' => '★★★★★',
+                    'projects_count' => Property::where('builder_name', $property->builder_name)->count(),
+                    'website_url' => null, // Can be added later if needed
+                ];
+            });
 
     return response()->json([
                 'topSellingProperties' => $topSellingProperties,
                 'topInvestmentOpportunities' => $topInvestmentOpportunities,
                 'developers' => $developers,
-                'location' => ucfirst($location)
+                'location' => ucfirst($location),
+                'hasMoreInvestmentProperties' => $hasMoreInvestmentProperties,
+                'currentPage' => $page,
+                'totalInvestmentProperties' => $totalInvestmentProperties
     ]);
   }
 }

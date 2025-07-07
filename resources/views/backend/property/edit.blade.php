@@ -137,6 +137,23 @@
                             <div class="form-text text-danger">{{ $message }}</div>
                             @enderror
                         </div>
+                        <div class="form-group">
+                            <div class="form-check">
+                                <input 
+                                    class="form-check-input @error('top_selling') is-invalid @enderror" 
+                                    type="checkbox" 
+                                    value="1" 
+                                    name="top_selling" 
+                                    id="top_selling"
+                                    {{ ($property->top_selling ?? old('top_selling')) ? 'checked' : '' }}>
+                                <label class="form-check-label" for="top_selling">
+                                    {{ __('Show in Top Selling Projects') }}
+                                </label>
+                                @error('top_selling')
+                                <div class="form-text text-danger">{{ $message }}</div>
+                                @enderror
+                            </div>
+                        </div>
                     </div>
                     <!-- /.card-body -->
                 </div>
@@ -700,6 +717,24 @@
                             @enderror
                         </div>
                         <div class="form-group">
+                            <label for="developer_logo">Developer Logo</label>
+                            <br>
+                            <div class="developer-logo-preview">
+                                @if($property->developer_logo)
+                                    <img src="{{ asset('assets/img/property/developer/' . $property->developer_logo) }}" 
+                                         alt="Developer Logo" class="uploaded-img" style="width: 100px; height: 100px; object-fit: cover; border-radius: 8px;">
+                                @endif
+                            </div>
+                            <div class="mt-3">
+                                <div role="button" class="btn btn-primary btn-sm upload-btn">
+                                    <input type="file" class="img-input" id="developer_logo" name="developer_logo" accept="image/*">
+                                </div>
+                            </div>
+                            @error('developer_logo')
+                            <div class="form-text text-danger">{{ $message }}</div>
+                            @enderror
+                        </div>
+                        <div class="form-group">
                             <label for="about_developer">Developer About</label>
                             <textarea 
                                 class="summernote @error('about_developer') is-invalid @enderror" 
@@ -905,6 +940,9 @@
         });
          $('#property_favicon').on('change', function () {
             singleImagesPreview(this, '.favicon-preview .uploaded-img');
+        });
+        $('#developer_logo').on('change', function () {
+            singleImagesPreview(this, '.developer-logo-preview .uploaded-img');
         });
         $('#virtual_site_tour').on('change', function () {
             singleImagesPreview(this, '.thumb-preview-tour .uploaded-img');

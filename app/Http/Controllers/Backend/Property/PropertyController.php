@@ -52,6 +52,9 @@ class PropertyController extends Controller
 //        die;
         $validated = $request->validated();
         $validated['property_slug'] = Str::slug($request->property_slug);
+        
+        // Handle checkbox - if not present in request, set to false
+        $validated['top_selling'] = $request->has('top_selling') ? true : false;
 
         $location_text = implode(', ', $request->location_text);
         $validated['location_text'] = $location_text;
@@ -65,6 +68,9 @@ class PropertyController extends Controller
         }
         if (request()->hasFile('property_favicon')) {
             $validated['property_favicon'] = UploadFile::store(public_path('assets/img/property/propertyfavicon'), $request->property_favicon);
+        }
+        if (request()->hasFile('developer_logo')) {
+            $validated['developer_logo'] = UploadFile::store(public_path('assets/img/property/developer'), $request->developer_logo);
         }
         if (request()->hasFile('virtual_site_tour')) {
             $validated['virtual_site_tour'] = UploadFile::store(public_path('assets/img/property/virtualsitetour'), $request->virtual_site_tour);
@@ -200,6 +206,10 @@ class PropertyController extends Controller
         //
         $validated = $request->validated();
         $validated['property_slug'] = Str::slug($request->property_slug);
+        
+        // Handle checkbox - if not present in request, set to false
+        $validated['top_selling'] = $request->has('top_selling') ? true : false;
+        
         if (!empty($request->location_text)) {
             $location_text = implode(', ', $request->location_text);
             $validated['location_text'] = $location_text;
@@ -230,6 +240,17 @@ class PropertyController extends Controller
             $validated['property_favicon'] = $filePathFavicon;
         } else {
             $validated['property_favicon'] = $property->property_favicon;
+        }
+        
+        if ($request->hasFile('developer_logo')) {
+            if (isset($property->developer_logo)) {
+                @unlink(public_path('assets/img/property/developer/' . $property->developer_logo));
+            }
+            $file = request()->file('developer_logo');
+            $filePath = UploadFile::store(public_path('assets/img/property/developer'), $file);
+            $validated['developer_logo'] = $filePath;
+        } else {
+            $validated['developer_logo'] = $property->developer_logo;
         }
 
         if ($request->hasFile('virtual_site_tour')) {
@@ -369,6 +390,9 @@ class PropertyController extends Controller
          if (isset($property->property_favicon)) {
             @unlink(public_path('assets/img/property/propertyfavicon/' . $property->property_favicon));
           }
+         if (isset($property->developer_logo)) {
+            @unlink(public_path('assets/img/property/developer/' . $property->developer_logo));
+          }
          if (isset($property->complete_costing_details)) {
              @unlink(public_path('assets/img/property/costimage/' . $property->complete_costing_details));
           }
@@ -414,6 +438,9 @@ class PropertyController extends Controller
             }
             if (isset($property->property_favicon)) {
               @unlink(public_path('assets/img/property/propertyfavicon/' . $property->property_favicon));
+            }
+            if (isset($property->developer_logo)) {
+              @unlink(public_path('assets/img/property/developer/' . $property->developer_logo));
             }
             if (isset($property->complete_costing_details)) {
                @unlink(public_path('assets/img/property/costimage/' . $property->complete_costing_details));

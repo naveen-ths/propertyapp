@@ -1,5 +1,10 @@
 // Home page JavaScript functionality
 
+// Global variables for pagination
+var currentInvestmentPage = 1;
+var currentLocation = 'mumbai';
+var isLoadingMore = false;
+
 $(document).ready(function() {
     // Enquiry form submission
     $(".btn-submit").click(function(e) {
@@ -83,6 +88,11 @@ $(document).ready(function() {
     // Load initial data on page load
     var defaultLocation = window.defaultLocation;
     changeLocation(defaultLocation);
+
+    // View More Investment Properties button click handler
+    $('#view-more-investment').click(function() {
+        loadMoreInvestmentProperties();
+    });
 });
 
 // Carousel initialization
@@ -154,30 +164,7 @@ function initializeCarousels() {
         });
     }, 100);
 
-    $('#carousel_in').owlCarousel({
-        margin: 15,
-        autoplay: true,
-        rewind: false,
-        loop: true,
-        responsiveClass: true,
-        autoHeight: true,
-        autoplayTimeout: 7000,
-        smartSpeed: 800,
-        responsive: {
-            0: {
-                items: 1.2
-            },
-            600: {
-                items: 3
-            },
-            1024: {
-                items: 4
-            },
-            1366: {
-                items: 4
-            }
-        }
-    });
+    // Investment opportunities now use grid layout instead of carousel
 }
 
 // Search form functionality
@@ -304,6 +291,10 @@ jQuery(function($) {
 
 // Function to change location and load dynamic data
 function changeLocation(location) {
+    // Reset pagination when changing location
+    currentInvestmentPage = 1;
+    currentLocation = location;
+    
     // Update hidden input
     document.getElementById('city_str_home').value = location;
     
@@ -312,7 +303,8 @@ function changeLocation(location) {
         url: window.getLocationDataRoute,
         type: 'GET',
         data: {
-            'location': location
+            'location': location,
+            'page': 1
         },
         beforeSend: function() {
             // Show loading states
@@ -330,8 +322,15 @@ function changeLocation(location) {
             // Update Top Selling Properties
             updateTopSellingProperties(response.topSellingProperties);
             
-            // Update Top Investment Opportunities
-            updateTopInvestmentOpportunities(response.topInvestmentOpportunities);
+            // Update Top Investment Opportunities (reset grid first)
+            updateTopInvestmentOpportunities(response.topInvestmentOpportunities, true);
+            
+            // Show/hide view more button
+            if (response.hasMoreInvestmentProperties) {
+                $('#view-more-investment').show();
+            } else {
+                $('#view-more-investment').hide();
+            }
             
             // Update Developers
             updateDevelopers(response.developers);
@@ -358,7 +357,7 @@ function updateTopSellingProperties(properties) {
             var propertyHtml = `
                 <a href="/${property.property_slug}" class="grid_item prop small">
                     <figure>
-                        <img src="${property.property_logo ? '/storage/' + property.property_logo : defaultImage}" 
+                        <img src="${property.property_logo ? '/assets/img/property/propertylogo/' + property.property_logo : defaultImage}" 
                              class="img-fluid" alt="${property.property_title}">
                         <div class="info">
                             <div class="cat_star">
@@ -414,45 +413,46 @@ function updateTopSellingProperties(properties) {
 }
 
 // Function to update top investment opportunities
-function updateTopInvestmentOpportunities(opportunities) {
-    var carousel = $('#carousel_in');
-    carousel.trigger('destroy.owl.carousel');
-    carousel.html('');
+function updateTopInvestmentOpportunities(opportunities, resetGrid = false) {
+    var grid = $('#investment-properties-grid');
+    if (resetGrid) {
+        grid.html('');
+    }
     
     var defaultImage = window.defaultImage;
     
     if (opportunities.length > 0) {
-        opportunities.forEach(function(opportunity) {
+        opportunities.forEach(function(property) {
             var propertyHtml = `
-                <div class="item">
+                <div class="col-lg-3 col-md-6 col-sm-6 mb-4">
                     <div class="strip grid">
                         <figure>
-                            <a href="${opportunity.property_url || '#'}">
-                                <img src="${opportunity.image_url || defaultImage}" 
-                                     class="img-fluid" alt="${opportunity.title}">
+                            <a href="/${property.property_slug || '#'}">
+                                <img src="${property.property_logo ? '/assets/img/property/propertylogo/' + property.property_logo : defaultImage}" 
+                                     class="img-fluid" alt="${property.property_title}">
                                 <div class="read_more"><span>Read more</span></div>
                             </a>
-                            <small>Investment: ${opportunity.investment_rating} / 5</small>
+                            <small>Investment: 5 / 5</small>
                         </figure>
                         <div class="wrapper">
-                            <h3><a href="${opportunity.property_url || '#'}">${opportunity.title}</a></h3>
-                            <h5><a href="">by ${opportunity.developer_name || 'Developer'}</a></h5>
+                            <h3><a href="/${property.property_slug || '#'}">${property.property_title}</a></h3>
+                            <h5><a href="">by ${property.builder_name || 'Developer'}</a></h5>
                             <p>
-                                <i class="fa-solid fa-house-chimney fa-2xs"></i> ${opportunity.property_type || 'Property'}<br>
-                                <i class="fa-solid fa-location-dot fa-2xs"></i> ${opportunity.location}
+                                <i class="icon-home"></i> ${property.property_type || 'Property'}<br>
+                                <i class="icon-location"></i> ${property.property_location}
                             </p>
-                            <a class="address">${opportunity.price_range || 'Price on Request'}</a>
+                            <a class="address">${property.property_price || 'Price on Request'}</a>
                         </div>
                         <ul>
                             <li>
                                 <button type="button" class="contactbtn loc_open" data-toggle="modal" 
-                                        data-target="#form" data-id="${opportunity.title}" 
-                                        data-pname="${opportunity.title}" data-dname="${opportunity.developer_name || 'Developer'}">
+                                        data-target="#form" data-id="${property.property_title}" 
+                                        data-pname="${property.property_title}" data-dname="${property.builder_name || 'Developer'}">
                                     Enquire Now
                                 </button>
                             </li>
                             <li>
-                                <button class="btn btn-primary whatbtn" onclick="window.open('https://api.whatsapp.com/send?phone=+919310963636&text=Hi! I\\'m Interested In ${opportunity.title}. Please Share Details.', '_blank');">
+                                <button class="btn btn-primary whatbtn" onclick="window.open('https://api.whatsapp.com/send?phone=+919310963636&text=Hi! I\\'m Interested In ${property.property_title}, ${property.property_location}. Please Share Details.', '_blank');">
                                     <i class="fa fa-whatsapp" aria-hidden="true"></i>
                                 </button>
                             </li>
@@ -460,26 +460,11 @@ function updateTopInvestmentOpportunities(opportunities) {
                     </div>
                 </div>
             `;
-            carousel.append(propertyHtml);
+            grid.append(propertyHtml);
         });
-    } else {
-        carousel.html('<div class="col-12 text-center"><p>No investment opportunities found for this location</p></div>');
+    } else if (resetGrid) {
+        grid.html('<div class="col-12 text-center"><p>No investment opportunities found for this location</p></div>');
     }
-    
-    // Reinitialize carousel
-    carousel.owlCarousel({
-        center: false,
-        items: 4,
-        loop: true,
-        margin: 10,
-        autoplay: true,
-        autoplayTimeout: 5000,
-        responsive: {
-            0: { items: 1 },
-            600: { items: 2 },
-            1000: { items: 4 }
-        }
-    });
 }
 
 // Function to update developers
@@ -541,6 +526,47 @@ function updateDevelopers(developers) {
             0: { items: 1 },
             600: { items: 2 },
             1000: { items: 3 }
+        }
+    });
+}
+
+// Function to load more investment properties
+function loadMoreInvestmentProperties() {
+    if (isLoadingMore) return;
+    
+    isLoadingMore = true;
+    currentInvestmentPage++;
+    
+    $('#view-more-investment').hide();
+    $('#loading-investment').show();
+    
+    $.ajax({
+        url: window.getLocationDataRoute,
+        type: 'GET',
+        data: {
+            'location': currentLocation,
+            'page': currentInvestmentPage
+        },
+        success: function(response) {
+            // Append new properties to existing grid
+            updateTopInvestmentOpportunities(response.topInvestmentOpportunities, false);
+            
+            // Show/hide view more button
+            if (response.hasMoreInvestmentProperties) {
+                $('#view-more-investment').show();
+            } else {
+                $('#view-more-investment').hide();
+            }
+            
+            $('#loading-investment').hide();
+            isLoadingMore = false;
+        },
+        error: function(xhr, status, error) {
+            console.error('Error loading more properties:', error);
+            currentInvestmentPage--; // Revert page increment
+            $('#view-more-investment').show();
+            $('#loading-investment').hide();
+            isLoadingMore = false;
         }
     });
 }
