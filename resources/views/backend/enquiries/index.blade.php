@@ -4,7 +4,7 @@
     <div class="container-fluid">
         <div class="row mb-2">
             <div class="col-sm-6">
-                <h1>Projects</h1>
+                <h1>Enquiries</h1>
             </div>
             <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
@@ -86,7 +86,7 @@
                                 @method('DELETE')
                                 <button type="submit" class="btn btn-danger btn-sm">
                                     <i class="fas fa-trash-alt"></i>
-                                    {{ __('Delete') }}
+                                    Delete
                                 </button>
                             </form>
                         </td>
@@ -100,6 +100,23 @@
             </table>
         </div>
         <!-- /.card-body -->
+        
+        <!-- Pagination -->
+        <div class="card-footer clearfix">
+            <div class="row">
+                <div class="col-sm-12 col-md-5">
+                    <div class="dataTables_info" role="status" aria-live="polite">
+                        Showing {{ $enquiries->firstItem() }} to {{ $enquiries->lastItem() }} of {{ $enquiries->total() }} results
+                    </div>
+                </div>
+                <div class="col-sm-12 col-md-7">
+                    <div class="dataTables_paginate paging_simple_numbers float-right">
+                        {{ $enquiries->links() }}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /.card-footer -->
     </div>
     <!-- /.card -->
 

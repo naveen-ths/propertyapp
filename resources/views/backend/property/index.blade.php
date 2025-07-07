@@ -26,6 +26,10 @@
             <h3 class="card-title">Properties</h3>
 
             <div class="card-tools">
+                <a href="{{ route('property.create') }}" class="btn btn-primary btn-sm">
+                    <i class="fas fa-plus"></i>
+                    Add New Property
+                </a>
                 <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
                     <i class="fas fa-minus"></i>
                 </button>
@@ -108,20 +112,37 @@
                                 @method('DELETE')
                                 <button type="submit" class="btn btn-danger btn-sm">
                                     <i class="fas fa-trash-alt"></i>
-                                    {{ __('Delete') }}
+                                    Delete
                                 </button>
                             </form>
                         </td>
                     </tr>
                     @empty
                     <tr>
-                        <td colspan="4">There are no data.</td>
+                        <td colspan="7" class="text-center">There are no data.</td>
                     </tr>
                     @endforelse
                 </tbody>
             </table>
         </div>
         <!-- /.card-body -->
+        
+        <!-- Pagination -->
+        <div class="card-footer clearfix">
+            <div class="row">
+                <div class="col-sm-12 col-md-5">
+                    <div class="dataTables_info" role="status" aria-live="polite">
+                        Showing {{ $properties->firstItem() }} to {{ $properties->lastItem() }} of {{ $properties->total() }} results
+                    </div>
+                </div>
+                <div class="col-sm-12 col-md-7">
+                    <div class="dataTables_paginate paging_simple_numbers float-right">
+                        {{ $properties->links() }}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /.card-footer -->
     </div>
     <!-- /.card -->
 
