@@ -8,6 +8,8 @@ use App\Http\Controllers\Backend\EnquiriesController;
 use App\Http\Controllers\Backend\HowItWorkController;
 use App\Http\Controllers\Backend\BannerController;
 use App\Http\Controllers\Backend\DeveloperController;
+use App\Http\Controllers\Backend\SettingsController;
+use App\Http\Controllers\Backend\ArtisanCommandController;
 use App\Http\Controllers\Frontend\PropertyController as FrontendPropertyController ;
 use App\Http\Controllers\Frontend\EnquiryController as FrontendEnquiryController;
 use App\Http\Controllers\Frontend\SitemapController ;
@@ -77,9 +79,22 @@ Route::resource('/admin/investment-opportunities', \App\Http\Controllers\Backend
     'destroy' => 'investment-opportunities.destroy',
 ]);
 
+// Artisan Commands routes (Local environment only)
+Route::middleware(['auth', 'verified', 'local.only'])->group(function () {
+    Route::get('/admin/artisan', [ArtisanCommandController::class, 'index'])->name('artisan.index');
+    Route::post('/admin/artisan/execute', [ArtisanCommandController::class, 'execute'])->name('artisan.execute');
+    Route::get('/admin/artisan/system-info', [ArtisanCommandController::class, 'systemInfo'])->name('artisan.system-info');
+});
+
 Route::delete('/property/banner-delete/{id}',[PropertyController::class, 'deleteBanner'])->middleware(['auth', 'verified'])->name('property.bannerdelete');
 Route::delete('/property/gallery-delete/{id}',[PropertyController::class, 'deleteGallery'])->middleware(['auth', 'verified'])->name('property.gallerydelete');
 Route::patch('/property/location-delete',[PropertyController::class, 'locationDelete'])->middleware(['auth', 'verified'])->name('property.locationdelete');
+
+// Settings Management routes
+Route::get('/admin/settings', [\App\Http\Controllers\Backend\SettingsController::class, 'index'])->middleware(['auth', 'verified'])->name('settings.index');
+Route::put('/admin/settings', [\App\Http\Controllers\Backend\SettingsController::class, 'update'])->middleware(['auth', 'verified'])->name('settings.update');
+Route::get('/admin/settings/initialize', [\App\Http\Controllers\Backend\SettingsController::class, 'initializeSettings'])->middleware(['auth', 'verified'])->name('settings.initialize');
+
 
 // FRONTEND Routes
 Route::get('/sitemap', [SitemapController::class, 'index'])->name('frontend.sitemap');
