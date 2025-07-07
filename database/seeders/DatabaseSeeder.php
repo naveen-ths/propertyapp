@@ -22,5 +22,8 @@ class DatabaseSeeder extends Seeder
 
         // Run the property seeder
         $this->call(PropertySeeder::class);
+        $this->call(HowItWorkSeeder::class);
+        $this->call(InvestmentOpportunitySeeder::class);
+        $this->call(DeveloperSeeder::class);
     }
 }
