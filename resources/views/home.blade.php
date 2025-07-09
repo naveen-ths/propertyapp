@@ -52,6 +52,201 @@
         <link href="{{ asset('css/custom.css') }}" rel="stylesheet">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
+        <!-- Enhanced Logo Styles for Centered Header -->
+        <style>
+            /* Header container styling */
+            .header_in {
+                background: #ffffff;
+                box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+                border-bottom: 1px solid #f0f0f0;
+                position: relative;
+                z-index: 999;
+            }
+            
+            .header_in .container {
+                padding: 5px 15px;
+            }
+            
+            .header_in .row {
+                align-items: center;
+                min-height: 80px;
+            }
+            
+            /* Centered logo styling */
+            .header_in #logo {
+                padding: 15px 0;
+                text-align: center;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 100%;
+            }
+            
+            .header_in #logo a {
+                display: inline-block;
+                line-height: 1;
+                transition: all 0.3s ease;
+            }
+            
+            .header_in #logo img.logo_sticky {
+                max-width: 100%;
+                height: auto;
+                transition: all 0.3s ease;
+                filter: brightness(1.1) contrast(1.15) saturate(1.1);
+                object-fit: contain;
+                border-radius: 3px;
+                box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            }
+            
+            .header_in #logo:hover img.logo_sticky {
+                transform: scale(1.03);
+                filter: brightness(1.25) contrast(1.3) saturate(1.2);
+                box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+            }
+            
+            /* Mobile specific adjustments */
+            @media (max-width: 767px) {
+                .header_in .container {
+                    padding: 3px 10px;
+                }
+                
+                .header_in .row {
+                    min-height: 60px;
+                }
+                
+                .header_in #logo {
+                    padding: 8px 0;
+                }
+                
+                .header_in #logo img.logo_sticky {
+                    max-height: 40px !important;
+                }
+            }
+            
+            /* Tablet specific adjustments */
+            @media (min-width: 768px) and (max-width: 991px) {
+                .header_in .row {
+                    min-height: 70px;
+                }
+                
+                .header_in #logo {
+                    padding: 12px 0;
+                }
+                
+                .header_in #logo img.logo_sticky {
+                    max-height: 50px !important;
+                }
+            }
+            
+            /* Desktop enhancement */
+            @media (min-width: 992px) {
+                .header_in #logo img.logo_sticky {
+                    max-height: 65px !important;
+                }
+            }
+            
+            /* Large desktop */
+            @media (min-width: 1200px) {
+                .header_in #logo img.logo_sticky {
+                    max-height: 75px !important;
+                }
+            }
+            
+            /* Chat button styling - aligned to right */
+            .main-menu {
+                text-align: right;
+                float: right;
+                width: 100%;
+            }
+            
+            .main-menu ul {
+                display: block;
+                margin: 0;
+                padding: 0;
+                list-style: none;
+                text-align: right;
+            }
+            
+            .main-menu ul li {
+                display: inline-block;
+                margin: 0;
+                padding: 0;
+            }
+            
+            .main-menu ul li span {
+                display: inline-block;
+            }
+            
+            .main-menu ul li span a {
+                transition: all 0.3s ease;
+                padding: 10px 18px !important;
+                font-weight: 500;
+                text-decoration: none;
+                display: inline-block;
+                margin: 0 !important;
+                border-radius: 5px;
+                background: rgb(250, 167, 10) !important;
+                color: rgb(255, 255, 255) !important;
+                font-size: 14px;
+                letter-spacing: 0.5px;
+            }
+            
+            .main-menu ul li span a:hover {
+                background: rgb(245, 158, 11) !important;
+                transform: translateY(-2px);
+                box-shadow: 0 4px 12px rgba(250, 167, 10, 0.4);
+                color: rgb(255, 255, 255) !important;
+            }
+            
+            /* Mobile hamburger and menu alignment */
+            .btn_mobile {
+                display: none;
+                float: right;
+            }
+            
+            /* Right column alignment */
+            .header_in .text-right {
+                text-align: right !important;
+                display: flex;
+                justify-content: flex-end;
+                align-items: center;
+                margin-bottom: 35px;
+            }
+            
+            @media (max-width: 991px) {
+                .btn_mobile {
+                    display: block;
+                    float: right;
+                    margin-right: 10px;
+                }
+                
+                .main-menu {
+                    text-align: right;
+                    float: right;
+                    clear: both;
+                }
+                
+                .main-menu ul li span a {
+                    padding: 8px 14px !important;
+                    font-size: 13px;
+                }
+                
+                .header_in .text-right {
+                    justify-content: flex-end;
+                    flex-direction: column;
+                    align-items: flex-end;
+                    margin-bottom: 35px;
+                }
+            }
+            
+            @media (max-width: 767px) {
+                .main-menu ul li span a {
+                    padding: 6px 12px !important;
+                    font-size: 12px;
+                }
+            }
+        </style>
+
         <link rel="canonical" href="{{ url()->current() }}" />
     </head>
 
@@ -59,9 +254,12 @@
         <div id="page" class="theia-exception">
             <header class="header_in">
                 <div class="container">
-                    <div class="row">
-                        <div class="col-lg-2 col-md-2 col-12">
-                            <div id="logo">
+                    <div class="row align-items-center">
+                        <div class="col-lg-3 col-md-3 col-6 order-2 order-lg-1">
+                            <!-- Left side - can be used for additional menu items if needed -->
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-12 order-1 order-lg-2">
+                            <div id="logo" class="text-center">
                                 <a href="{{ url('/') }}">
                                     @php
                                     $logoPath = $settings['site_logo'] ?? 'public/img/gallery/ks-logo.webp';
@@ -72,7 +270,7 @@
                                 </a>
                             </div>
                         </div>
-                        <div class="col-lg-10 col-md-10 col-12">
+                        <div class="col-lg-3 col-md-3 col-6 order-3 order-lg-3 text-right">
 
                             <!-- /top_menu -->
                             <a href="#menu" class="btn_mobile" aria-label="Mobile Menu">
@@ -87,8 +285,7 @@
                                     <li>
                                         <span>
                                             <a target="_blank" rel="noreferrer"
-                                               href="https://api.whatsapp.com/send?phone={{ $settings['whatsapp_number'] ?? '' }}&amp;text=Hello, Need assistance with home buying"
-                                               style="background: rgb(250 167 10); border-radius: 5px; color: rgb(255, 255, 255);     margin-left: 15px;">
+                                               href="https://api.whatsapp.com/send?phone={{ $settings['whatsapp_number'] ?? '' }}&amp;text=Hello, Need assistance with home buying">
                                                 CHAT NOW
                                             </a>
                                         </span>
@@ -150,7 +347,7 @@
                             <form method="GET" action="{{ route('search.results') }}" id="search-form-location">
                                 <div class="row g-0 custom-search-input-2">
 
-                                    <div class="col-lg-3 col-md-3 col-3 cityb form-group">
+                                    <div class="col-lg-3 col-md-3 col-3 cityb form-group p-0">
                                         <select class="wide nice-select wide" id="location-selector" name="location" onchange="changeLocation(this.value)">
                                             <option value="mumbai" {{ $defaultLocation == 'mumbai' ? 'selected' : '' }}>Mumbai</option>
                                             <option value="pune" {{ $defaultLocation == 'pune' ? 'selected' : '' }}>Pune</option>
@@ -169,7 +366,7 @@
                                         </div>
                                     </div>
 
-                                    <div class="col-lg-2 col-md-2 col-2 srchb pz">
+                                    <div class="col-lg-2 col-md-2 col-2 srchb pz p-0">
                                         <button type="submit" class="sbtn" id="sbtnh">
                                             <i class="ti-search"></i>
                                         </button>

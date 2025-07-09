@@ -357,7 +357,7 @@ function updateTopSellingProperties(properties) {
             var propertyHtml = `
                 <a href="/${property.property_slug}" class="grid_item prop small">
                     <figure>
-                        <img src="${property.property_logo ? '/assets/img/property/propertylogo/' + property.property_logo : defaultImage}" 
+                        <img src="${property.first_gallery_image || defaultImage}" 
                              class="img-fluid" alt="${property.property_title}">
                         <div class="info">
                             <div class="cat_star">
@@ -365,7 +365,7 @@ function updateTopSellingProperties(properties) {
                             </div>
                             <h3>${property.property_title}</h3>
                             <p>
-                                <i class="fa-solid fa-house-chimney fa-2xs"></i> ${property.property_type}<br>
+                                <i class="fa-solid fa-house-chimney fa-2xs"></i> ${property.property_type || 'Residential'}<br>
                                 <i class="fa-solid fa-location-dot fa-2xs"></i> ${property.property_location}
                             </p>
                         </div>
@@ -428,7 +428,7 @@ function updateTopInvestmentOpportunities(opportunities, resetGrid = false) {
                     <div class="strip grid">
                         <figure>
                             <a href="/${property.property_slug || '#'}">
-                                <img src="${property.property_logo ? '/assets/img/property/propertylogo/' + property.property_logo : defaultImage}" 
+                                <img src="${property.first_gallery_image || defaultImage}" 
                                      class="img-fluid" alt="${property.property_title}">
                                 <div class="read_more"><span>Read more</span></div>
                             </a>

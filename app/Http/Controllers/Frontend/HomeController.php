@@ -54,20 +54,42 @@ class HomeController extends Controller {
     $topSellingProperties = Property::where('status', true)
             ->where('top_selling', true) // Only get properties marked as top selling
             ->whereRaw('LOWER(property_location) LIKE ?', ['%' . strtolower($location) . '%'])
+            ->with(['gallery' => function($query) {
+                $query->orderBy('id', 'asc')->limit(1); // Get only the first gallery image
+            }])
             ->orderBy('created_at', 'desc')
             ->limit(8)
-            ->get();
+            ->get()
+            ->map(function($property) {
+                // Add the first gallery image URL to the property
+                $firstGalleryImage = $property->gallery->first();
+                $property->first_gallery_image = $firstGalleryImage 
+                    ? asset('assets/img/property/gallery/' . $firstGalleryImage->image)
+                    : asset('img/no-image.jpeg');
+                return $property;
+            });
 
     // Get investment opportunities from properties table by location with pagination
     $investmentQuery = Property::where('status', true)
             ->whereRaw('LOWER(property_location) LIKE ?', ['%' . strtolower($location) . '%'])
+            ->with(['gallery' => function($query) {
+                $query->orderBy('id', 'asc')->limit(1); // Get only the first gallery image
+            }])
             ->orderBy('created_at', 'desc');
             
     $totalInvestmentProperties = $investmentQuery->count();
     $topInvestmentOpportunities = $investmentQuery
             ->skip(($page - 1) * $perPage)
             ->take($perPage)
-            ->get();
+            ->get()
+            ->map(function($property) {
+                // Add the first gallery image URL to the property
+                $firstGalleryImage = $property->gallery->first();
+                $property->first_gallery_image = $firstGalleryImage 
+                    ? asset('assets/img/property/gallery/' . $firstGalleryImage->image)
+                    : asset('img/no-image.jpeg');
+                return $property;
+            });
             
     $hasMoreInvestmentProperties = $totalInvestmentProperties > ($page * $perPage);
 
