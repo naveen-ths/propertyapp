@@ -41,6 +41,7 @@ Route::resource('/admin/property', PropertyController::class);
 Route::post('delete', [PropertyController::class, 'delete'])->name('property.delete');
 
 Route::resource('/admin/enquiries', EnquiriesController::class);
+Route::get('/admin/enquiries-export', [EnquiriesController::class, 'export'])->middleware(['auth', 'verified'])->name('enquiries.export');
 
 // How It Works CRUD routes
 Route::resource('/admin/how-it-works', HowItWorkController::class)->middleware(['auth', 'verified'])->names([

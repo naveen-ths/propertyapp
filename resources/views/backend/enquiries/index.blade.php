@@ -26,6 +26,9 @@
             <h3 class="card-title">Enquiries</h3>
 
             <div class="card-tools">
+                <a href="{{ route('enquiries.export') }}" class="btn btn-success btn-sm mr-2" title="Download Excel">
+                    <i class="fas fa-download"></i> Download Excel
+                </a>
                 <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
                     <i class="fas fa-minus"></i>
                 </button>

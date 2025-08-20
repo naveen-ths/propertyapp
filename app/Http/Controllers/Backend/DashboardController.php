@@ -15,7 +15,7 @@ class DashboardController extends Controller {
      */
     public function index(): View {
 
-        $enquiries = Enquiries::latest()->paginate(10);
+        $enquiries = Enquiries::latest()->paginate(5);
         return view('backend.admin.dashboard', compact('enquiries'))
                 ->with('i', (request()->input('page', 1) - 1) * 5);
     }
