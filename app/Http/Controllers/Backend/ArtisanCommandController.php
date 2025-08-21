@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Log;
 use Symfony\Component\Console\Output\BufferedOutput;
 
 class ArtisanCommandController extends Controller
@@ -126,7 +127,7 @@ class ArtisanCommandController extends Controller
             $result = $output->fetch();
             
             // Log the command execution
-            \Log::info("Artisan command executed: {$command}", [
+            Log::info("Artisan command executed: {$command}", [
                 'exit_code' => $exitCode,
                 'output' => $result
             ]);
@@ -139,7 +140,7 @@ class ArtisanCommandController extends Controller
             ]);
 
         } catch (\Exception $e) {
-            \Log::error("Artisan command failed: {$command}", [
+            Log::error("Artisan command failed: {$command}", [
                 'error' => $e->getMessage(),
                 'trace' => $e->getTraceAsString()
             ]);
