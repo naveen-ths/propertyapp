@@ -3,8 +3,39 @@
 <section class="content-header">
     <div class="container-fluid">
         <div class="row mb-2">
-            <div class="col-sm-6">
-                <h1>Property Add</h1>
+            <div cl                        </div>
+                        <div class="form-group">
+                            <label for="property_location">Property Location</label>
+                            <input 
+                                type="text" 
+                                name="property_location" 
+                                value="{{old('property_location')}}"
+                                class="form-control @error('property_location') is-invalid @enderror" 
+                                id="property_location" 
+                                placeholder="Enter Property Location">
+                            @error('property_location')
+                            <div class="form-text text-danger">{{ $message }}</div>
+                            @enderror
+                        </div>
+                        <div class="form-group">
+                            <label for="city_id">{{ __('City') }} <span class="text-danger">*</span></label>
+                            <select 
+                                name="city_id" 
+                                class="form-control @error('city_id') is-invalid @enderror" 
+                                id="city_id">
+                                <option value="">Select City</option>
+                                @foreach($cities as $city)
+                                    <option value="{{ $city->id }}" {{ old('city_id') == $city->id ? 'selected' : '' }}>
+                                        {{ $city->title }}
+                                    </option>
+                                @endforeach
+                            </select>
+                            @error('city_id')
+                            <div class="form-text text-danger">{{ $message }}</div>
+                            @enderror
+                        </div>
+                        <div class="form-group">
+                            <label for="by_developer_text">Property By Developer Text</label>                <h1>Property Add</h1>
             </div>
             <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
@@ -119,6 +150,23 @@
                             <div class="form-text text-danger">{{ $message }}</div>
                             @enderror
                         </div>
+                        <div class="form-group">
+                            <div class="form-check">
+                                <input 
+                                    class="form-check-input @error('top_selling') is-invalid @enderror" 
+                                    type="checkbox" 
+                                    value="1" 
+                                    name="top_selling" 
+                                    id="top_selling"
+                                    {{ old('top_selling') ? 'checked' : '' }}>
+                                <label class="form-check-label" for="top_selling">
+                                    {{ __('Show in Top Selling Projects') }}
+                                </label>
+                                @error('top_selling')
+                                <div class="form-text text-danger">{{ $message }}</div>
+                                @enderror
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="card card-primary">
@@ -155,6 +203,23 @@
                                 id="property_location" 
                                 placeholder="Enter Property Location">
                             @error('property_location')
+                            <div class="form-text text-danger">{{ $message }}</div>
+                            @enderror
+                        </div>
+                        <div class="form-group">
+                            <label for="city_id">{{ __('City') }} <span class="text-danger">*</span></label>
+                            <select 
+                                name="city_id" 
+                                class="form-control @error('city_id') is-invalid @enderror" 
+                                id="city_id">
+                                <option value="">Select City</option>
+                                @foreach($cities as $city)
+                                    <option value="{{ $city->id }}" {{ old('city_id') == $city->id ? 'selected' : '' }}>
+                                        {{ $city->title }}
+                                    </option>
+                                @endforeach
+                            </select>
+                            @error('city_id')
                             <div class="form-text text-danger">{{ $message }}</div>
                             @enderror
                         </div>
@@ -663,6 +728,20 @@
                             @enderror
                         </div>
                         <div class="form-group">
+                            <label for="developer_logo">Developer Logo</label>
+                            <br>
+                            <div class="developer-logo-preview">
+                            </div>
+                            <div class="mt-3">
+                                <div role="button" class="btn btn-primary btn-sm upload-btn">
+                                    <input type="file" class="img-input" id="developer_logo" name="developer_logo" accept="image/*">
+                                </div>
+                            </div>
+                            @error('developer_logo')
+                            <div class="form-text text-danger">{{ $message }}</div>
+                            @enderror
+                        </div>
+                        <div class="form-group">
                             <label for="about_developer">Developer About</label>
                             <textarea 
                                 class="summernote @error('about_developer') is-invalid @enderror" 
@@ -813,6 +892,9 @@
         });
         $('#property_favicon').on('change', function () {
             imagesPreview(this, 'div.favicon-preview');
+        });
+        $('#developer_logo').on('change', function () {
+            imagesPreview(this, 'div.developer-logo-preview');
         });
         $('#virtual_site_tour').on('change', function () {
             imagesPreview(this, 'div.thumb-preview-tour');

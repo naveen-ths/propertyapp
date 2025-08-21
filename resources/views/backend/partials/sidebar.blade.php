@@ -34,16 +34,16 @@
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                 <!-- Add icons to the links using the .nav-icon class
                      with font-awesome or any other icon font library -->
-                <li class="nav-item menu-open">
-                    <a href="{{ route('dashboard') }}" class="nav-link active">
+                <li class="nav-item">
+                    <a href="{{ route('dashboard') }}" class="nav-link {{ request()->routeIs('dashboard') ? 'active' : '' }}">
                         <i class="nav-icon fas fa-tachometer-alt"></i>
                         <p>
                             Dashboard
                         </p>
                     </a>
                 </li>
-                <li class="nav-item">
-                    <a href="#" class="nav-link">
+                <li class="nav-item {{ request()->routeIs('property.*') ? 'menu-open' : '' }}">
+                    <a href="#" class="nav-link {{ request()->routeIs('property.*') ? 'active' : '' }}">
                         <i class="nav-icon fas fa-home"></i>
                         <p>
                             Manage Properties
@@ -52,13 +52,13 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="{{ route('property.create') }}" class="nav-link">
+                            <a href="{{ route('property.create') }}" class="nav-link {{ request()->routeIs('property.create') ? 'active' : '' }}">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Add Property</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ route('property.index') }}" class="nav-link">
+                            <a href="{{ route('property.index') }}" class="nav-link {{ request()->routeIs('property.index') ? 'active' : '' }}">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Manage Property</p>
                             </a>
@@ -66,14 +66,73 @@
                     </ul>
                 </li>
                 <li class="nav-item">
-                    <a href="{{ route('enquiries.index') }}" class="nav-link">
-                        <i class="nav-icon fas fa-home"></i>
+                    <a href="{{ route('enquiries.index') }}" class="nav-link {{ request()->routeIs('enquiries.*') ? 'active' : '' }}">
+                        <i class="nav-icon fas fa-envelope"></i>
                         <p>
                             Manage Enquiries
-                            <i class="right fas fa-angle-left"></i>
                         </p>
                     </a>
                 </li>
+                <li class="nav-item">
+                    <a href="{{ route('how-it-works.index') }}" class="nav-link {{ request()->routeIs('how-it-works.*') ? 'active' : '' }}">
+                        <i class="nav-icon fas fa-cogs"></i>
+                        <p>
+                            How It Works
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{ route('admin.banner') }}" class="nav-link {{ request()->routeIs('admin.banner*') ? 'active' : '' }}">
+                        <i class="nav-icon fas fa-image"></i>
+                        <p>
+                            Homepage Banner
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{ route('cities.index') }}" class="nav-link {{ request()->routeIs('cities.*') ? 'active' : '' }}">
+                        <i class="nav-icon fas fa-city"></i>
+                        <p>
+                            Manage Cities
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{ route('developers.index') }}" class="nav-link {{ request()->routeIs('developers.*') ? 'active' : '' }}">
+                        <i class="nav-icon fas fa-building"></i>
+                        <p>
+                            Developers
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{ route('investment-opportunities.index') }}" class="nav-link {{ request()->routeIs('investment-opportunities.*') ? 'active' : '' }}">
+                        <i class="nav-icon fas fa-chart-line"></i>
+                        <p>
+                            Investment Opportunities
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{ route('settings.index') }}" class="nav-link {{ request()->routeIs('settings.*') ? 'active' : '' }}">
+                        <i class="nav-icon fas fa-cog"></i>
+                        <p>
+                            Website Settings
+                        </p>
+                    </a>
+                </li>
+                
+                @if(app()->environment('local'))
+                <li class="nav-item">
+                    <a href="{{ route('artisan.index') }}" class="nav-link {{ request()->routeIs('artisan.*') ? 'active' : '' }}">
+                        <i class="nav-icon fas fa-terminal"></i>
+                        <p>
+                            Artisan Commands
+                            <span class="badge badge-warning right">DEV</span>
+                        </p>
+                    </a>
+                </li>
+                @endif
             </ul>
         </nav>
         <!-- /.sidebar-menu -->

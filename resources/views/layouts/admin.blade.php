@@ -70,5 +70,7 @@
                 height: 150
             });
         </script>
+        
+        @stack('scripts')
     </body>
 </html>
