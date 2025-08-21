@@ -106,7 +106,7 @@ class HomeController extends Controller
         return $property;
       });
 
-    $hasMoreInvestmentProperties = $totalInvestmentProperties > ($page * $perPage);
+        $hasMoreInvestmentProperties = $totalInvestmentProperties > ($page * $perPage);
 
     // Get developers from properties table by city (unique builders)
     $developers = Property::where('status', true)
@@ -115,11 +115,12 @@ class HomeController extends Controller
       })
       ->whereNotNull('builder_name')
       ->select('builder_name', 'developer_logo', 'about_developer', 'property_location')
-      ->groupBy('builder_name', 'developer_logo', 'about_developer', 'property_location')
       ->orderBy('builder_name', 'asc')
-      ->limit(8)
       ->get()
-      ->map(function ($property) {
+      ->unique('builder_name')
+      ->values()
+      ->take(8)
+      ->map(function ($property) use ($cityId) {
         $logoUrl = null;
         if ($property->developer_logo) {
           $logoUrl = asset('assets/img/property/developer/' . $property->developer_logo);
@@ -131,7 +132,11 @@ class HomeController extends Controller
           'description' => $property->about_developer ?: 'Leading real estate developer',
           'location' => $property->property_location,
           'star_rating' => '★★★★★',
-          'projects_count' => Property::where('builder_name', $property->builder_name)->count(),
+          'projects_count' => Property::where('builder_name', $property->builder_name)
+                                    ->when($cityId, function ($query) use ($cityId) {
+                                      return $query->where('city_id', $cityId);
+                                    })
+                                    ->count(),
           'website_url' => null, // Can be added later if needed
         ];
       });
