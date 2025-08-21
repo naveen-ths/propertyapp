@@ -57,6 +57,9 @@
                         <th style="width: 30%">
                             Project Location
                         </th>
+                        <th style="width: 15%">
+                            City
+                        </th>
                         <th>
                             Project Price
                         </th>
@@ -87,6 +90,9 @@
                         </td>
                         <td>
                             {{ $property->property_location }}
+                        </td>
+                        <td>
+                            {{ $property->city->title ?? 'N/A' }}
                         </td>
                         <td class="project_progress">
                             <small>

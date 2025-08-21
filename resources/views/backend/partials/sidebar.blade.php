@@ -90,6 +90,14 @@
                     </a>
                 </li>
                 <li class="nav-item">
+                    <a href="{{ route('cities.index') }}" class="nav-link {{ request()->routeIs('cities.*') ? 'active' : '' }}">
+                        <i class="nav-icon fas fa-city"></i>
+                        <p>
+                            Manage Cities
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
                     <a href="{{ route('developers.index') }}" class="nav-link {{ request()->routeIs('developers.*') ? 'active' : '' }}">
                         <i class="nav-icon fas fa-building"></i>
                         <p>

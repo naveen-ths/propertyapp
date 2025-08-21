@@ -3,8 +3,39 @@
 <section class="content-header">
     <div class="container-fluid">
         <div class="row mb-2">
-            <div class="col-sm-6">
-                <h1>Property Add</h1>
+            <div cl                        </div>
+                        <div class="form-group">
+                            <label for="property_location">Property Location</label>
+                            <input 
+                                type="text" 
+                                name="property_location" 
+                                value="{{old('property_location')}}"
+                                class="form-control @error('property_location') is-invalid @enderror" 
+                                id="property_location" 
+                                placeholder="Enter Property Location">
+                            @error('property_location')
+                            <div class="form-text text-danger">{{ $message }}</div>
+                            @enderror
+                        </div>
+                        <div class="form-group">
+                            <label for="city_id">{{ __('City') }} <span class="text-danger">*</span></label>
+                            <select 
+                                name="city_id" 
+                                class="form-control @error('city_id') is-invalid @enderror" 
+                                id="city_id">
+                                <option value="">Select City</option>
+                                @foreach($cities as $city)
+                                    <option value="{{ $city->id }}" {{ old('city_id') == $city->id ? 'selected' : '' }}>
+                                        {{ $city->title }}
+                                    </option>
+                                @endforeach
+                            </select>
+                            @error('city_id')
+                            <div class="form-text text-danger">{{ $message }}</div>
+                            @enderror
+                        </div>
+                        <div class="form-group">
+                            <label for="by_developer_text">Property By Developer Text</label>                <h1>Property Add</h1>
             </div>
             <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
@@ -172,6 +203,23 @@
                                 id="property_location" 
                                 placeholder="Enter Property Location">
                             @error('property_location')
+                            <div class="form-text text-danger">{{ $message }}</div>
+                            @enderror
+                        </div>
+                        <div class="form-group">
+                            <label for="city_id">{{ __('City') }} <span class="text-danger">*</span></label>
+                            <select 
+                                name="city_id" 
+                                class="form-control @error('city_id') is-invalid @enderror" 
+                                id="city_id">
+                                <option value="">Select City</option>
+                                @foreach($cities as $city)
+                                    <option value="{{ $city->id }}" {{ old('city_id') == $city->id ? 'selected' : '' }}>
+                                        {{ $city->title }}
+                                    </option>
+                                @endforeach
+                            </select>
+                            @error('city_id')
                             <div class="form-text text-danger">{{ $message }}</div>
                             @enderror
                         </div>

@@ -2,16 +2,17 @@
 <html lang="en">
 
     <head>
-        <title>Buy Properties, Flats, House, Appartments and Villas in India - {{ $settings['site_name'] ?? 'Keystone Real Estate Advisory' }}</title>
+        <title>Buy Properties, Flats, House, Appartments and Villas in India - {{ $settings['site_name'] ?? 'Luxury Homes' }}
+        </title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="description"
-              content="Search over 200+ properties in India on Keystone Real Estate Advisory & Buy best houses, villa's, properties and flats. Contact us to check prices of properties, new arrivals & more. " />
+              content="Search over 200+ properties in India on Luxury Homes & Buy best houses, villa's, properties and flats. Contact us to check prices of properties, new arrivals & more. " />
         <meta name="keywords" content="">
 
         <meta property="og:title"
-              content="Buy Properties, Flats, House, Appartments and Villas in India - {{ $settings['site_name'] ?? 'Developers Real Estate Advisory' }}">
-        <meta property="og:site_name" content="{{ $settings['site_name'] ?? 'Developers Real Estate Advisory' }}">
+              content="Buy Properties, Flats, House, Appartments and Villas in India - {{ $settings['site_name'] ?? 'Luxury Homes' }}">
+        <meta property="og:site_name" content="{{ $settings['site_name'] ?? 'Luxury Homes' }}">
         <meta property="og:url" content="{{ url('/') }}">
         <meta property="og:description" content="">
         <meta property="og:type" content="website">
@@ -39,11 +40,13 @@
         <script src="https://code.jquery.com/jquery-3.3.1.min.js" crossorigin="anonymous"></script>
 
         <!-- BASE CSS -->
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css"
+              crossorigin="anonymous">
 
         <!-- Owl Carousel v2.2.1 CSS -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.2.1/assets/owl.carousel.min.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.2.1/assets/owl.theme.default.min.css">
+        <link rel="stylesheet"
+              href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.2.1/assets/owl.theme.default.min.css">
 
         <link href="{{ asset('css/vendors.css') }}" rel="stylesheet">
         <link href="{{ asset('css/style.css') }}" rel="stylesheet">
@@ -57,21 +60,21 @@
             /* Header container styling */
             .header_in {
                 background: #ffffff;
-                box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+                box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
                 border-bottom: 1px solid #f0f0f0;
                 position: relative;
                 z-index: 999;
             }
-            
+
             .header_in .container {
                 padding: 5px 15px;
             }
-            
+
             .header_in .row {
                 align-items: center;
                 min-height: 80px;
             }
-            
+
             /* Centered logo styling */
             .header_in #logo {
                 padding: 15px 0;
@@ -81,13 +84,13 @@
                 align-items: center;
                 height: 100%;
             }
-            
+
             .header_in #logo a {
                 display: inline-block;
                 line-height: 1;
                 transition: all 0.3s ease;
             }
-            
+
             .header_in #logo img.logo_sticky {
                 max-width: 100%;
                 height: auto;
@@ -95,70 +98,70 @@
                 filter: brightness(1.1) contrast(1.15) saturate(1.1);
                 object-fit: contain;
                 border-radius: 3px;
-                box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+                box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
             }
-            
+
             .header_in #logo:hover img.logo_sticky {
                 transform: scale(1.03);
                 filter: brightness(1.25) contrast(1.3) saturate(1.2);
-                box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
             }
-            
+
             /* Mobile specific adjustments */
             @media (max-width: 767px) {
                 .header_in .container {
                     padding: 3px 10px;
                 }
-                
+
                 .header_in .row {
                     min-height: 60px;
                 }
-                
+
                 .header_in #logo {
                     padding: 8px 0;
                 }
-                
+
                 .header_in #logo img.logo_sticky {
                     max-height: 40px !important;
                 }
             }
-            
+
             /* Tablet specific adjustments */
             @media (min-width: 768px) and (max-width: 991px) {
                 .header_in .row {
                     min-height: 70px;
                 }
-                
+
                 .header_in #logo {
                     padding: 12px 0;
                 }
-                
+
                 .header_in #logo img.logo_sticky {
                     max-height: 50px !important;
                 }
             }
-            
+
             /* Desktop enhancement */
             @media (min-width: 992px) {
                 .header_in #logo img.logo_sticky {
                     max-height: 65px !important;
                 }
             }
-            
+
             /* Large desktop */
             @media (min-width: 1200px) {
                 .header_in #logo img.logo_sticky {
                     max-height: 75px !important;
                 }
             }
-            
+
             /* Chat button styling - aligned to right */
             .main-menu {
                 text-align: right;
                 float: right;
                 width: 100%;
             }
-            
+
             .main-menu ul {
                 display: block;
                 margin: 0;
@@ -166,17 +169,17 @@
                 list-style: none;
                 text-align: right;
             }
-            
+
             .main-menu ul li {
                 display: inline-block;
                 margin: 0;
                 padding: 0;
             }
-            
+
             .main-menu ul li span {
                 display: inline-block;
             }
-            
+
             .main-menu ul li span a {
                 transition: all 0.3s ease;
                 padding: 10px 18px !important;
@@ -190,20 +193,20 @@
                 font-size: 14px;
                 letter-spacing: 0.5px;
             }
-            
+
             .main-menu ul li span a:hover {
                 background: rgb(245, 158, 11) !important;
                 transform: translateY(-2px);
                 box-shadow: 0 4px 12px rgba(250, 167, 10, 0.4);
                 color: rgb(255, 255, 255) !important;
             }
-            
+
             /* Mobile hamburger and menu alignment */
             .btn_mobile {
                 display: none;
                 float: right;
             }
-            
+
             /* Right column alignment */
             .header_in .text-right {
                 text-align: right !important;
@@ -212,25 +215,25 @@
                 align-items: center;
                 margin-bottom: 35px;
             }
-            
+
             @media (max-width: 991px) {
                 .btn_mobile {
                     display: block;
                     float: right;
                     margin-right: 10px;
                 }
-                
+
                 .main-menu {
                     text-align: right;
                     float: right;
                     clear: both;
                 }
-                
+
                 .main-menu ul li span a {
                     padding: 8px 14px !important;
                     font-size: 13px;
                 }
-                
+
                 .header_in .text-right {
                     justify-content: flex-end;
                     flex-direction: column;
@@ -238,7 +241,7 @@
                     margin-bottom: 35px;
                 }
             }
-            
+
             @media (max-width: 767px) {
                 .main-menu ul li span a {
                     padding: 6px 12px !important;
@@ -265,8 +268,7 @@
                                     $logoPath = $settings['site_logo'] ?? 'public/img/gallery/ks-logo.webp';
                                     $logoUrl = str_starts_with($logoPath, 'settings/') ? asset('storage/' . $logoPath) : asset($logoPath);
                                     @endphp
-                                    <img src="{{ $logoUrl }}" alt="{{ $settings['site_name'] ?? config('app.name') }}"
-                                         class="logo_sticky">
+                                    <img src="{{ $logoUrl }}" alt="{{ $settings['site_name'] ?? config('app.name') }}" class="logo_sticky">
                                 </a>
                             </div>
                         </div>
@@ -348,19 +350,22 @@
                                 <div class="row g-0 custom-search-input-2">
 
                                     <div class="col-lg-3 col-md-3 col-3 cityb form-group p-0">
-                                        <select class="wide nice-select wide" id="location-selector" name="location" onchange="changeLocation(this.value)">
-                                            <option value="mumbai" {{ $defaultLocation == 'mumbai' ? 'selected' : '' }}>Mumbai</option>
-                                            <option value="pune" {{ $defaultLocation == 'pune' ? 'selected' : '' }}>Pune</option>
-                                            <option value="bangalore" {{ $defaultLocation == 'bangalore' ? 'selected' : '' }}>Bangalore</option>
+                                        <select class="wide nice-select wide" id="location-selector" name="city_id"
+                                                onchange="changeLocation(this.value)">
+                                            @foreach($cities as $city)
+                                            <option value="{{ $city->id }}" {{ $defaultCity && $defaultCity->id == $city->id ? 'selected' : ''
+                                                }}>
+                                                {{ $city->title }}
+                                            </option>
+                                            @endforeach
                                         </select>
                                     </div>
                                     <div class="col-lg-7 col-md-7 col-7 bright">
                                         <div class="form-group">
                                             <input class="form-control city" type="hidden" id="city_str_home"
-                                                   value="{{ $defaultLocation }}" placeholder="Enter Location, Project"
+                                                   value="{{ $defaultCity ? $defaultCity->title : '' }}" placeholder="Enter Location, Project"
                                                    name="city_str_home">
-                                            <input type="text" name="search_str_home"
-                                                   placeholder="Enter Location, Project" id="search_str_home"
+                                            <input type="text" name="search_str_home" placeholder="Enter Location, Project" id="search_str_home"
                                                    class="form-control str search_str_home" autocomplete="off">
 
                                         </div>
@@ -417,7 +422,8 @@
                 <div class="container margin_60_35">
                     <div class="main_title_2">
                         <span><em></em></span>
-                        <h2 id="top-selling-title">Top Selling Projects in {{ ucfirst($defaultLocation) }}</h2>
+                        <h2 id="top-selling-title">Top Selling Projects in {{ $defaultCity ? $defaultCity->title : 'All Cities' }}
+                        </h2>
                         <p>Exclusive deals on Residential Projects</p>
                     </div>
                     <div id="carousel_in_topselling" class="owl-carousel owl-theme">
@@ -428,7 +434,7 @@
                 <div class="container margin_60_35">
                     <div class="main_title_2">
                         <span><em></em></span>
-                        <h2 id="top-investment-title">Top Investment Opportunity in {{ ucfirst($defaultLocation) }}</h2>
+                        <h2 id="top-investment-title">Top Investment Opportunity in {{ $defaultCity ? $defaultCity->title : 'All Cities' }}</h2>
                         <p>Exclusive deals on Residential Projects</p>
                     </div>
                     <div id="investment-properties-grid" class="row">
@@ -452,8 +458,7 @@
                             <figure class="block-reveal d-inline-block">
                                 <div class="block-horizzontal"></div>
                                 @if ($banner->image_url)
-                                <img src="{{ $banner->image_url }}" class="img-fluid"
-                                     alt="{{ $banner->title }}">
+                                <img src="{{ $banner->image_url }}" class="img-fluid" alt="{{ $banner->title }}">
                                 @endif
                             </figure>
                             @if ($banner->button_text && $banner->button_url)
@@ -507,8 +512,9 @@
                     <div class="container margin_60_35">
                         <div class="main_title_3">
                             <span><em></em></span>
-                            <h2 id="developers-title">Reputed Developers in {{ ucfirst($defaultLocation) }}</h2>
-                            <a href="{{ url('/developers-in-' . $defaultLocation) }}" id="developers-link">See all</a>
+                            <h2 id="developers-title">Reputed Developers in {{ $defaultCity ? $defaultCity->title : 'All Cities' }}</h2>
+                            <a href="{{ url('/developers-in-' . ($defaultCity ? strtolower(str_replace(' ', '-', $defaultCity->title)) : 'all')) }}"
+                               id="developers-link">See all</a>
                         </div>
                         <div id="carousel_in_dev" class="owl-carousel owl-theme hide-desktop">
                             <!-- Developers will be loaded here dynamically -->
@@ -520,8 +526,8 @@
                 </div>
             </main>
             <!-- /main -->
-            <div class="modal fade zoom-anim-dialog" id="form" tabindex="-1" role="dialog"
-                 aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal fade zoom-anim-dialog" id="form" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                 aria-hidden="true">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content modal-body">
 
@@ -539,15 +545,12 @@
                                 <ul></ul>
                             </div>
                             <form>
-                                <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                                <input type="hidden" name="_token" value="{{ csrf_token() }}"> 
 
-                                <input type="hidden" id="developer" name="developer" value=""
-                                       class="form-control">
-                                <input type="hidden" id="project" name="project" value=""
-                                       class="form-control">
+                                <input type="hidden" id="developer" name="developer" value="" class="form-control">
+                                <input type="hidden" id="project" name="project" value="" class="form-control">
                                 <input type="hidden" name="source" value="Property Search Page" class="form-control">
-                                <input type="hidden" name="url" value="{{ url()->current() }}"
-                                       class="form-control">
+                                <input type="hidden" name="url" value="{{ url()->current() }}" class="form-control">
                                 <div class="form-group">
                                     <input type="text" name="full_name" class="form-control" placeholder="Full Name">
                                 </div>
@@ -563,8 +566,8 @@
                                 <div class="form-group form">
 
                                     <div class="input-group date-time">
-                                        <input class="form-control" id="datetimepicker" name="datetime"
-                                               class="form-control" placeholder="Date and Time" />
+                                        <input class="form-control" id="datetimepicker" name="datetime" class="form-control"
+                                               placeholder="Date and Time" />
                                     </div>
                                 </div>
 
@@ -591,9 +594,9 @@
                                         {{ $settings['head_office_address'] ?? '' }}</li>
                                     <li><i class="ti-home"></i>Pune Branch:
                                         {{ $settings['branch_address'] ?? '' }}</li>
-                                    <li><i class="ti-headphone-alt"></i><a href="tel:{{ str_replace(['+', ' ', '-'], '', $settings['phone_number'] ?? '') }}">{{ $settings['phone_number'] ?? '' }}</a></li>
-                                    <li><i class="ti-email"></i><a
-                                            href="mailto:{{ $settings['email_address'] ?? '' }}">{{ $settings['email_address'] ?? '' }}</a>
+                                    <li><i class="ti-headphone-alt"></i><a
+                                            href="tel:{{ str_replace(['+', ' ', '-'], '', $settings['phone_number'] ?? '') }}">{{ $settings['phone_number'] ?? '' }}</a></li>
+                                    <li><i class="ti-email"></i><a href="mailto:{{ $settings['email_address'] ?? '' }}">{{ $settings['email_address'] ?? '' }}</a>
                                     </li>
                                 </ul>
                             </div>
@@ -607,9 +610,8 @@
                                     $logoPath = $settings['site_logo'] ?? 'public/img/gallery/ks-logo.webp';
                                     $logoUrl = str_starts_with($logoPath, 'settings/') ? asset('storage/' . $logoPath) : asset($logoPath);
                                     @endphp
-                                    <img src="{{ $logoUrl }}"
-                                         width="200" height="70" alt="{{ $settings['site_name'] ?? config('app.name') }}"
-                                         class="footerlogo">
+                                    <img src="{{ $logoUrl }}" width="200" height="70"
+                                         alt="{{ $settings['site_name'] ?? config('app.name') }}" class="footerlogo">
                                 </a>
                                 <p class="whitte">Since 2014, {{ $settings['site_name'] ?? 'Developers' }} is committed to navigate your
                                     real estate experience. Being a trusted partner, we focus on clear communication and
@@ -632,8 +634,8 @@
                                                             class="ti-twitter"></i></a></li>
                                                 <li><a href="{{ $settings['pinterest_url'] ?? 'https://in.pinterest.com' }}"
                                                        aria-label="Pinterest"><i class="ti-pinterest"></i></a></li>
-                                                <li><a href="{{ $settings['youtube_url'] ?? 'https://www.youtube.com' }}"
-                                                       aria-label="YouTube"><i class="ti-youtube"></i></a></li>
+                                                <li><a href="{{ $settings['youtube_url'] ?? 'https://www.youtube.com' }}" aria-label="YouTube"><i
+                                                            class="ti-youtube"></i></a></li>
                                                 <li><a href="{{ $settings['linkedin_url'] ?? 'https://in.linkedin.com' }}"
                                                        aria-label="Linkedin"><i class="ti-linkedin"></i></a></li>
                                             </ul>
@@ -666,11 +668,11 @@
 
         <!-- Configuration variables for home.js -->
         <script>
-    // Global configuration for home.js
-    window.enquirySubmitRoute = "{{ route('enquiry.submit') }}";
-    window.getLocationDataRoute = "{{ route('get.location.data') }}";
-    window.defaultLocation = "{{ $defaultLocation }}";
-    window.defaultImage = "{{ asset('img/no-image.jpeg') }}";
+      // Global configuration for home.js
+      window.enquirySubmitRoute = "{{ route('enquiry.submit') }}";
+      window.getLocationDataRoute = "{{ route('get.location.data') }}";
+      window.defaultCityId = "{{ $defaultCity ? $defaultCity->id : '' }}";
+      window.defaultImage = "{{ asset('img/no-image.jpeg') }}";
         </script>
 
         <!-- Home page JavaScript -->
